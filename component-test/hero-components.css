@@ -1,0 +1,253 @@
+/**
+ * Hero section components — extracted from 5_hero_section.png
+ * Requires: ../v3-design-extract-typography/denisa-dragomir-variables.css
+ *           ../v3-design-extract-typography/denisa-dragomir-typography.css
+ */
+
+/* ─── Demo shell (dark grain panel) ─── */
+.hero-demo {
+  --hero-line-gold: #b87942;
+  min-height: 100vh;
+  padding: var(--space-10) var(--space-section-x);
+  background-color: var(--color-coal);
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+  color: var(--color-text-on-dark);
+}
+
+.hero-demo__inner {
+  max-width: 32rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.hero-demo__block {
+  padding: var(--space-6);
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-sm);
+}
+
+.hero-demo__label {
+  margin: 0 0 var(--space-4);
+  font-family: var(--font-body);
+  font-size: var(--text-caption-size);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-overline);
+  text-transform: uppercase;
+  color: var(--color-text-inverse-muted);
+}
+
+/* ─── 1. Eyebrow ─── */
+.hero-eyebrow {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-overline-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--text-overline-lh);
+  letter-spacing: var(--letter-spacing-overline);
+  text-transform: uppercase;
+  color: var(--color-text-inverse-muted);
+}
+
+/* ─── 2. Title ─── */
+.hero-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-display-hero-size);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--text-display-hero-lh);
+  letter-spacing: var(--text-display-hero-ls);
+  color: var(--color-text-on-dark);
+}
+
+.hero-title-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  max-width: 100%;
+}
+
+/* Gold cubic ribbon — title scale (viewBox 0 0 320 18) */
+.hero-title-underline {
+  display: block;
+  width: min(20rem, 100%);
+  height: 1.125rem;
+  flex-shrink: 0;
+}
+
+.hero-title-underline svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Gold cubic ribbon — button / text-link scale (same path, narrower) */
+.hero-button-underline,
+.hero-btn-text__underline {
+  display: block;
+  width: 6.75rem;
+  height: 0.95rem;
+  flex-shrink: 0;
+}
+
+.hero-button-underline svg,
+.hero-btn-text__underline svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ─── 3. Subtitle element (ornament line + body) ─── */
+.hero-subtitle-element {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 26rem;
+}
+
+.hero-subtitle-element__line {
+  display: block;
+  width: min(12rem, 70%);
+  height: 0.45rem;
+  color: var(--color-burnt-orange);
+}
+
+/* v3 Reference — default ornament profile */
+.hero-subtitle-element__line--v1 { --hero-line-bend: 0; }
+.hero-subtitle-element__line--v2 { --hero-line-bend: 0.2; }
+.hero-subtitle-element__line--v3 { --hero-line-bend: 0.28; }
+.hero-subtitle-element__line--v4 { --hero-line-bend: 0.18; }
+.hero-subtitle-element__line--v5 { --hero-line-bend: 0.24; }
+
+.hero-subtitle-element__line svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hero-subtitle-element__text {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm-size);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.65;
+  color: var(--color-text-on-dark);
+}
+
+@media (min-width: 48rem) {
+  .hero-subtitle-element__text {
+    font-size: var(--text-body-size);
+    line-height: var(--text-body-lh);
+  }
+}
+
+/* ─── 4. Button (ghost outline on dark) ─── */
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.625rem 1.5rem;
+  font-family: var(--font-body);
+  font-size: var(--text-button-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--text-button-lh);
+  letter-spacing: var(--letter-spacing-nav);
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background var(--duration-fast) var(--ease-default),
+    color var(--duration-fast) var(--ease-default),
+    border-color var(--duration-fast) var(--ease-default);
+}
+
+.hero-btn--outline {
+  background: transparent;
+  color: var(--color-text-on-dark);
+  border: 1px solid rgba(250, 249, 246, 0.85);
+}
+
+.hero-btn--outline:hover {
+  background: var(--color-text-on-dark);
+  color: var(--color-coal);
+}
+
+.hero-btn--outline:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: 3px;
+}
+
+/* ─── 5. Button with subtitle element (text + hand-drawn underline) ─── */
+.hero-btn-text {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: 0;
+  border: none;
+  background: none;
+  font-family: var(--font-body);
+  font-size: var(--text-button-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--text-button-lh);
+  letter-spacing: var(--letter-spacing-nav);
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-text-on-dark);
+  cursor: pointer;
+  transition: color var(--duration-fast) var(--ease-default);
+}
+
+.hero-btn-text:hover {
+  color: var(--color-burnt-orange);
+}
+
+.hero-btn-text:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+/* ─── 6. Hand-script with subtitle element (paperclip + quote) ─── */
+.hero-hand-script {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  max-width: 22rem;
+  margin-top: var(--space-4);
+}
+
+.hero-hand-script__clip {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 2.5rem;
+  margin-top: 0.15rem;
+  color: var(--color-text-inverse-muted);
+  transform: rotate(-12deg);
+}
+
+.hero-hand-script__clip svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-hand-script__quote {
+  margin: 0;
+  font-family: var(--font-handwritten);
+  font-size: var(--text-handwritten-size);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--text-handwritten-lh);
+  color: var(--color-burnt-orange);
+  transform: rotate(-2deg);
+}

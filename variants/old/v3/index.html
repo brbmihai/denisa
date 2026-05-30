@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Denisa Dragomir</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #F3EEE6;
+  --cream: #FFFAF5;
+  --ink: #2A2218;
+  --muted: #6B5E54;
+  --clay: #C4A484;
+  --forest: #2D4A3E;
+  --terra: #C75B41;
+  --border: rgba(42,34,24,0.12);
+  --shadow: 0 8px 32px rgba(42,34,24,0.08);
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: var(--font-sans); background: var(--bg); color: var(--ink); line-height: 1.55; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+.site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding: 1rem 1.25rem 0; }
+.header-inner {
+  max-width: 72rem; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 0.75rem 1.2rem;
+  background: rgba(255,250,245,0.94);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+@media (min-width: 768px) {
+  .header-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  }
+  .header-logo-wrap { justify-self: start; min-width: 0; }
+  .header-nav-main { justify-self: center; }
+  .header-cta-wrap {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.65rem;
+    min-width: 0;
+  }
+}
+.header-logo-wrap { min-width: 0; }
+.header-cta-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.65rem;
+  min-width: 0;
+}
+.header-cta-desktop {
+  display: none;
+  align-items: center;
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .header-cta-desktop { display: flex; }
+}
+.header-cta-desktop a:not(.btn) {
+  text-decoration: none;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: rgba(42,34,24,0.62);
+}
+.header-cta-desktop a:not(.btn):hover { color: var(--terra); }
+@media (max-width: 767px) {
+  .site-header .header-inner { position: relative; }
+  .nav-mobile-panel {
+    left: 0;
+    right: 0;
+    top: calc(100% + 0.35rem);
+    min-width: unset;
+    border-radius: 0 0 16px 16px;
+    padding: 1rem 1rem 1.1rem;
+    border-top: 1px solid var(--border);
+    box-shadow: 0 12px 40px rgba(42,34,24,0.12);
+    z-index: 60;
+  }
+}
+.brand { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; }
+.brand-mark {
+  width: 2.1rem; height: 2.1rem; border-radius: 50%; display: grid; place-items: center;
+  background: rgba(45,74,62,0.15); color: var(--forest);
+}
+.brand-mark svg { width: 1.05rem; height: 1.05rem; }
+.brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+.brand-text strong { font-size: 0.68rem; letter-spacing: 0.1em; }
+.brand-text small { font-size: 0.62rem; color: var(--muted); margin-top: 2px; }
+.nav-desktop { display: none; align-items: center; gap: 1.35rem; }
+.nav-desktop a { text-decoration: none; font-size: 0.86rem; font-weight: 600; color: rgba(42,34,24,0.62); }
+.nav-desktop a:hover { color: var(--terra); }
+.nav-mobile { position: relative; }
+.nav-mobile summary {
+  list-style: none; cursor: pointer; color: var(--muted); padding: 0.25rem;
+  display: flex; justify-content: flex-end; align-items: center;
+}
+.nav-mobile summary::-webkit-details-marker { display: none; }
+.nav-mobile-panel {
+  position: absolute; right: 0; top: calc(100% + 8px); min-width: 200px;
+  background: var(--cream); border-radius: 16px; padding: 1rem;
+  display: flex; flex-direction: column; gap: 0.75rem; box-shadow: var(--shadow);
+}
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.35rem; font-weight: 700; font-size: 0.85rem; text-decoration: none; border-radius: 14px; transition: 0.2s; }
+.btn-header { padding: 0.55rem 1.2rem; background: var(--terra); color: #fff; border: none; }
+.btn-header:hover { background: #b04f36; transform: translateY(-1px); }
+.btn-block { width: 100%; }
+.btn-hero { padding: 0.95rem 1.65rem; background: var(--terra); color: #fff; border: none; box-shadow: 0 6px 24px rgba(199,91,65,0.35); }
+.btn-hero:hover { background: #b04f36; }
+@media (min-width: 768px) {
+  .nav-desktop { display: flex; }
+  .nav-mobile { display: none; }
+}
+.hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; }
+.hero-media { position: absolute; inset: 0; }
+.hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: left; }
+.hero-scrim {
+  position: absolute; inset: 0;
+  background: linear-gradient(120deg, rgba(42,34,24,0.72) 0%, rgba(42,34,24,0.25) 50%, rgba(199,91,65,0.15) 100%),
+    linear-gradient(to top, rgba(42,34,24,0.5), transparent 55%);
+}
+.hero-content { position: relative; z-index: 2; max-width: 72rem; margin: 0 auto; padding: 7rem 1.5rem 3rem; width: 100%; }
+.hero h1 {
+  font-family: var(--font-display); font-size: clamp(2.4rem, 6vw, 3.6rem); font-weight: 600; line-height: 1.08; margin: 0 0 1rem; color: #fff;
+}
+.hero h1 em { font-style: italic; color: #F5D4A8; }
+.hero-lead { color: rgba(255,255,255,0.88); max-width: 24rem; font-size: 1.02rem; margin-bottom: 1.75rem; }
+.section { padding: 4rem 0; }
+@media (min-width: 768px) { .section { padding: 5rem 0; } }
+.wrap { max-width: 72rem; margin: 0 auto; padding: 0 1.25rem; }
+.wrap.narrow { max-width: 40rem; }
+.intro { background: var(--cream); border-radius: 0; box-shadow: inset 0 1px 0 rgba(255,255,255,0.6); }
+.intro h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.45rem); font-weight: 600; margin: 0 0 1rem; line-height: 1.15; color: var(--forest); }
+.intro p { color: var(--muted); margin: 0 0 1.25rem; }
+.link-arrow { font-weight: 700; font-size: 0.88rem; color: var(--terra); text-decoration: none; }
+.link-arrow:hover { text-decoration: underline; text-underline-offset: 4px; }
+.sec-head { margin-bottom: 2.5rem; }
+.eyebrow { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.26em; text-transform: uppercase; color: var(--terra); margin: 0 0 0.45rem; }
+.sec-head h2 { font-family: var(--font-display); font-size: clamp(1.7rem, 3.5vw, 2.35rem); font-weight: 600; margin: 0 0 0.5rem; color: var(--forest); }
+.sec-sub { color: var(--muted); margin: 0; max-width: 28rem; }
+.plan-grid { display: grid; gap: 1.1rem; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .plan-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .plan-grid { grid-template-columns: repeat(4, 1fr); } }
+.plan-card {
+  position: relative; background: var(--cream); border-radius: 22px;
+  display: flex; flex-direction: column; transition: 0.25s;
+  box-shadow: var(--shadow); border: 1px solid var(--border);
+  overflow: hidden;
+}
+.plan-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--clay); opacity: 0.85; }
+.plan-card:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(42,34,24,0.12); }
+.plan-card--featured::before { background: linear-gradient(90deg, var(--forest), var(--terra)); height: 5px; }
+.plan-popular {
+  position: absolute; top: 0.85rem; right: 0.85rem; font-size: 0.58rem; font-weight: 800; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 0.3rem 0.65rem; border-radius: 999px; background: rgba(45,74,62,0.12); color: var(--forest);
+}
+.plan-inner { padding: 1.65rem 1.35rem 1.4rem; display: flex; flex-direction: column; flex: 1; }
+.plan-card--featured .plan-inner { padding-top: 2.35rem; background: linear-gradient(180deg, rgba(45,74,62,0.06), transparent 55%); }
+.plan-tag { font-size: 0.62rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin: 0 0 0.2rem; }
+.plan-inner h3 { margin: 0 0 0.25rem; font-size: 1.08rem; color: var(--forest); }
+.plan-desc { font-size: 0.74rem; color: var(--muted); margin: 0 0 1rem; line-height: 1.45; }
+.plan-price { display: flex; align-items: baseline; gap: 0.25rem; margin-bottom: 0.35rem; }
+.plan-price .amount { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.03em; color: var(--ink); }
+.plan-price .unit { font-size: 0.82rem; color: var(--muted); font-weight: 600; }
+.plan-extra { font-size: 0.74rem; font-weight: 700; color: var(--terra); margin: 0 0 1rem; }
+.plan-rule { border: none; border-top: 1px solid var(--border); margin: 0 0 1rem; }
+.plan-features { list-style: none; padding: 0; margin: 0 0 1.2rem; flex: 1; }
+.plan-features li { display: flex; gap: 0.55rem; font-size: 0.74rem; color: var(--muted); margin-bottom: 0.5rem; line-height: 1.45; }
+.li-ico { flex-shrink: 0; width: 1.05rem; height: 1.05rem; border-radius: 50%; display: grid; place-items: center; margin-top: 2px; background: rgba(45,74,62,0.14); color: var(--forest); }
+.plan-card--featured .li-ico { background: rgba(199,91,65,0.15); color: var(--terra); }
+.btn-plan {
+  margin-top: auto; width: 100%; padding: 0.78rem; text-align: center; font-weight: 800; font-size: 0.78rem;
+  border: 2px solid rgba(42,34,24,0.15); color: var(--ink); background: transparent; border-radius: 14px;
+}
+.btn-plan:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+.plan-card--featured .btn-plan { background: var(--forest); color: #fff; border-color: var(--forest); }
+.plan-card--featured .btn-plan:hover { background: #243d33; }
+.testimonials { background: var(--bg); }
+.tm-grid { display: grid; gap: 1.1rem; grid-template-columns: 1fr; }
+@media (min-width: 768px) { .tm-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .tm-grid { grid-template-columns: repeat(3, 1fr); } }
+.tm-card {
+  margin: 0; padding: 1.5rem; border-radius: 22px; background: var(--cream);
+  box-shadow: var(--shadow); border: 1px solid var(--border);
+  display: flex; flex-direction: column; min-height: 100%;
+}
+.tm-quote { color: rgba(199,91,65,0.35); margin-bottom: 0.7rem; display: block; }
+.tm-text { flex: 1; font-size: 0.88rem; color: rgba(42,34,24,0.78); margin: 0 0 1rem; line-height: 1.5; }
+.tm-foot { display: flex; gap: 0.75rem; align-items: center; padding-top: 1rem; border-top: 1px solid var(--border); margin-top: auto; }
+.tm-avatar {
+  width: 2.35rem; height: 2.35rem; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: 0.82rem;
+  background: var(--cream); color: var(--terra); border: 3px solid rgba(199,91,65,0.45); box-shadow: 0 2px 8px rgba(199,91,65,0.15);
+}
+.tm-name { margin: 0; font-weight: 700; font-size: 0.9rem; color: var(--forest); }
+.tm-meta { margin: 0.1rem 0 0; font-size: 0.72rem; color: var(--muted); }
+.cta-band .cta-inner {
+  background: linear-gradient(135deg, var(--forest), #1e332b); color: #fff; border-radius: 24px; padding: 2.5rem 1.85rem;
+  display: flex; flex-direction: column; gap: 1.35rem; align-items: flex-start; box-shadow: var(--shadow);
+}
+@media (min-width: 768px) {
+  .cta-band .cta-inner { flex-direction: row; align-items: center; justify-content: space-between; }
+}
+.cta-inner h2 { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.55rem, 3vw, 2.1rem); margin: 0 0 0.5rem; }
+.cta-inner p { margin: 0; color: rgba(255,255,255,0.78); max-width: 22rem; }
+.btn-cta { background: var(--terra); color: #fff; padding: 0.88rem 1.55rem; font-weight: 800; border: none; border-radius: 14px; }
+.btn-cta:hover { background: #d66b4f; }
+.site-footer { background: var(--forest); color: rgba(255,250,245,0.78); padding: 3rem 0 2rem; }
+.footer-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+@media (min-width: 768px) { .footer-grid { grid-template-columns: repeat(4, 1fr); } }
+.foot-label { font-size: 0.62rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,250,245,0.45); margin: 0 0 0.85rem; }
+.foot-links, .foot-contact { list-style: none; padding: 0; margin: 0; font-size: 0.86rem; }
+.foot-links li, .foot-contact li { margin-bottom: 0.45rem; }
+.foot-links a { color: rgba(255,250,245,0.75); text-decoration: none; }
+.foot-links a:hover { color: #F5D4A8; }
+.foot-contact li { display: flex; gap: 0.45rem; align-items: flex-start; }
+.ico { flex-shrink: 0; color: #F5D4A8; margin-top: 2px; }
+.social { display: flex; gap: 0.65rem; }
+.social a {
+  width: 2.25rem; height: 2.25rem; border-radius: 50%; display: grid; place-items: center;
+  background: rgba(255,250,245,0.1); color: #fff; text-decoration: none;
+}
+.social a:hover { background: rgba(245,212,168,0.25); color: #F5D4A8; }
+.foot-bottom {
+  margin-top: 2.5rem; padding-top: 1.75rem; border-top: 1px solid rgba(255,250,245,0.15);
+  display: flex; flex-direction: column; align-items: center; gap: 0.75rem; text-align: center;
+}
+@media (min-width: 768px) { .foot-bottom { flex-direction: row; justify-content: space-between; text-align: left; } }
+.foot-bottom p { margin: 0; font-size: 0.72rem; color: rgba(255,250,245,0.45); }
+.foot-wordmark { font-size: 1.1rem; font-weight: 800; letter-spacing: -0.02em; color: rgba(255,250,245,0.2); }
+.foot-wordmark span { color: rgba(245,212,168,0.55); }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-logo-wrap">
+        <a class="brand" href="#">
+          <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM6.75 19.5a7.5 7.5 0 0110.5-10.5"/></svg></span>
+          <span class="brand-text"><strong>DENISA DRAGOMIR</strong><small>Trail Running Coach</small></span>
+        </a>
+      </div>
+      <nav class="nav-desktop header-nav-main" aria-label="Primary">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Coaching</a>
+        <a href="#">Blog</a>
+      </nav>
+      <div class="header-cta-wrap">
+        <div class="header-cta-desktop">
+          <a href="#contact">Contact</a>
+          <a class="btn btn-header" href="https://denisadragomir.ro/contact" target="_blank" rel="noopener noreferrer">Get Started</a>
+        </div>
+        <details class="nav-mobile">
+          <summary aria-label="Open menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></summary>
+          <div class="nav-mobile-panel">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Coaching</a>
+            <a href="#">Blog</a>
+            <a href="#contact">Contact</a>
+            <a class="btn btn-header btn-block" href="https://denisadragomir.ro/contact" target="_blank" rel="noopener noreferrer">Get Started</a>
+          </div>
+        </details>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-media">
+        <img src="./FitFocus_files/5e51450c0_Foto2_MerrellTrailTeam22_AlexisBerg_3053.jpg" alt="Trail runner on mountain ridge at sunrise" width="1920" height="1080" loading="eager"/>
+        <div class="hero-scrim"></div>
+      </div>
+      <div class="hero-content">
+        <h1>Planuri de<br/><em>Antrenament</em></h1>
+        <p class="hero-lead">Antrenament personalizat de alergare montană și trail running. De la Denisa Dragomir.</p>
+        <a class="btn btn-hero" href="#plans">Explorează Pachetele</a>
+      </div>
+    </section>
+
+    <section class="section intro">
+      <div class="wrap narrow">
+        <h2>Cultivă-ți Forța,<br/>în Mod Natural</h2>
+        <p>Coaching holistic — rezistență și monitorizare, prevenire accidentări, mobilitate și stretching, alimentație și echipament. Plan de antrenament 100% personalizat, livrat săptămânal și ajustat constant în funcție de evoluția ta.</p>
+        <a class="link-arrow" href="https://denisadragomir.ro/contact" target="_blank" rel="noopener noreferrer">Află mai multe <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="section plans" id="plans">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="eyebrow">Pachete lunare</p>
+          <h2>Alege planul tău</h2>
+          <p class="sec-sub">Fiecare plan este construit pentru a te ajuta să îți atingi obiectivele, indiferent de nivelul tău.</p>
+        </header>
+        <div class="plan-grid">
+        <article class="plan-card">
+          
+          <div class="plan-inner">
+            <p class="plan-tag">Explorer</p>
+            <h3>Beginners</h3>
+            <p class="plan-desc">Plan lunar, feedback săptămânal de bază</p>
+            <div class="plan-price"><span class="amount">250</span><span class="unit">lei/lună</span></div>
+            
+            <hr class="plan-rule"/>
+            <ul class="plan-features">            <li><span class="li-ico"><svg class="ico-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Ședință Skype pentru adaptarea corpului la efort</span></li>
+            <li><span class="li-ico"><svg class="ico-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Plan de antrenament personalizat 100%, livrat săptămânal</span></li>
+            <li><span class="li-ico"><svg class="ico-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Monitorizare antrenamente pe TrainingPeaks</span></li>
+            <li><span class="li-ico"><svg class="ico-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Grup de WhatsApp 24/7</span></li>
+            <li><span class="li-ico"><svg class="ico-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Alegerea și pregătirea primei competiții</span></li>
+            <li><span class="li-ico"><svg class="ico-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Sfaturi echipament, mobilitate și stretching</span></li>
+            <li><span class="li-ico"><svg class="ico-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Exerciții pentru corectarea alergării</span></li>
+            </ul>
+            <a class="btn btn-plan" href="https://denisadragomir.ro/contact" target="_blank" rel="noopener noreferrer">Select Plan</a>
+          </div>
+        </article>
+        <article class="plan-card">
+          
+          <div class="plan-inner">
+            <p class="plan-tag">Peak Performance</p>
+            <h3>Basic</h3>
+            <p class="plan-desc">Plan personalizat, check-in săptămânal, ghidare nutriție</p>
+            <div class="plan-price"><span class="amount">350</span><span class="unit">lei/lună</span></div>
+            <p class="plan-extra">10% reducere la plata în avans pe 3 luni – 315 RON/lună</p>
+            <hr class="plan-rule"/>
+            <ul class="plan-features">            <li><span class="li-ico"><svg class="ico-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Ședință Skype pentru stabilirea obiectivelor</span></li>
+            <li><span class="li-ico"><svg class="ico-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Plan de antrenament 100% personalizat, livrat săptămânal</span></li>
+            <li><span class="li-ico"><svg class="ico-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Analiză activități la final de săptămână + feedback</span></li>
+            <li><span class="li-ico"><svg class="ico-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Monitorizare TrainingPeaks + WhatsApp 24/7</span></li>
+            <li><span class="li-ico"><svg class="ico-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Stabilirea calendarului competițional</span></li>
+            <li><span class="li-ico"><svg class="ico-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Sfaturi mobilitate, stretching, alimentație și echipament</span></li>
+            <li><span class="li-ico"><svg class="ico-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Analiza progresului la 3 luni (video call)</span></li>
+            </ul>
+            <a class="btn btn-plan" href="https://denisadragomir.ro/contact" target="_blank" rel="noopener noreferrer">Select Plan</a>
+          </div>
+        </article>
+        <article class="plan-card plan-card--featured">
+          <span class="plan-popular">Popular</span>
+          <div class="plan-inner">
+            <p class="plan-tag">Elite Ultra</p>
+            <h3>Advanced</h3>
+            <p class="plan-desc">Contact nelimitat, analiză video, strategie de cursă</p>
+            <div class="plan-price"><span class="amount">450</span><span class="unit">lei/lună</span></div>
+            <p class="plan-extra">10% reducere la plata în avans pe 3 luni – 405 RON/lună</p>
+            <hr class="plan-rule"/>
+            <ul class="plan-features">            <li><span class="li-ico"><svg class="ico-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Toate beneficiile din planul Basic</span></li>
+            <li><span class="li-ico"><svg class="ico-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Analiză activități de 2 ori pe săptămână + feedback</span></li>
+            <li><span class="li-ico"><svg class="ico-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Ajustări ale antrenamentelor ori de câte ori e nevoie</span></li>
+            <li><span class="li-ico"><svg class="ico-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Consiliere pre-competițională și plan de cursă</span></li>
+            <li><span class="li-ico"><svg class="ico-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Antrenament de forță specific alergării</span></li>
+            <li><span class="li-ico"><svg class="ico-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Înscrierea gratuită la o cursă din România (minim 6 luni)</span></li>
+            </ul>
+            <a class="btn btn-plan" href="https://denisadragomir.ro/contact" target="_blank" rel="noopener noreferrer">Sign Up Now</a>
+          </div>
+        </article>
+        <article class="plan-card">
+          
+          <div class="plan-inner">
+            <p class="plan-tag">Summit</p>
+            <h3>Pro</h3>
+            <p class="plan-desc">Totul din Elite Ultra plus suport nutriție complet</p>
+            <div class="plan-price"><span class="amount">600</span><span class="unit">lei/lună</span></div>
+            <p class="plan-extra">10% reducere la plata în avans pe 3 luni – 540 RON/lună</p>
+            <hr class="plan-rule"/>
+            <ul class="plan-features">            <li><span class="li-ico"><svg class="ico-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Toate beneficiile din planul Advanced</span></li>
+            <li><span class="li-ico"><svg class="ico-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Feedback zilnic și analiză permanentă</span></li>
+            <li><span class="li-ico"><svg class="ico-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Ajustări constante ale planului de antrenament</span></li>
+            <li><span class="li-ico"><svg class="ico-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Video call lunar pentru analiza progresului</span></li>
+            <li><span class="li-ico"><svg class="ico-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Program de forță specific alergării</span></li>
+            <li><span class="li-ico"><svg class="ico-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Sfaturi nutriție și hidratare completă</span></li>
+            <li><span class="li-ico"><svg class="ico-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Înscrierea gratuită la o competiție din Italia (minim 6 luni)</span></li>
+            </ul>
+            <a class="btn btn-plan" href="https://denisadragomir.ro/contact" target="_blank" rel="noopener noreferrer">Select Plan</a>
+          </div>
+        </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section testimonials" id="testimoniale">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="eyebrow">Testimoniale</p>
+          <h2>Ce spun sportivii</h2>
+          <p class="sec-sub">Povești reale de la oameni care au ales să facă un pas în plus.</p>
+        </header>
+        <div class="tm-grid">
+        <blockquote class="tm-card">
+          <span class="tm-quote" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg></span>
+          <p class="tm-text">"Când vrei să ajungi campion, alegeți model un campion. Colaborez cu Denisa de 5 ani, iar rezultatele se văd: locul I la categoria de vârstă la toate competițiile. Dovada că se poate la orice vârstă."</p>
+          <footer class="tm-foot">
+            <span class="tm-avatar">P</span>
+            <div><p class="tm-name">Paraschiva Bors</p><p class="tm-meta">56 ani</p></div>
+          </footer>
+        </blockquote>
+        <blockquote class="tm-card">
+          <span class="tm-quote" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg></span>
+          <p class="tm-text">"Fiecare antrenament propus de ea este o provocare și nu prea e timp de plictiseală. Feedbackul constant, împreună cu planul personalizat, rezultă în alergări de care nu credeam că sunt în stare."</p>
+          <footer class="tm-foot">
+            <span class="tm-avatar">V</span>
+            <div><p class="tm-name">Vlad</p></div>
+          </footer>
+        </blockquote>
+        <blockquote class="tm-card">
+          <span class="tm-quote" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg></span>
+          <p class="tm-text">"Răbdarea, profesionalismul și antrenamentele ei m-au adus destul de repede pe coclaurile mele dragi. Antrenamentele se updatează în funcție de orice lucruri neprevăzute care pot apărea."</p>
+          <footer class="tm-foot">
+            <span class="tm-avatar">A</span>
+            <div><p class="tm-name">Amalia</p></div>
+          </footer>
+        </blockquote>
+        <blockquote class="tm-card">
+          <span class="tm-quote" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg></span>
+          <p class="tm-text">"M-a încurajat de fiecare dată când nu eram sigur pe mine. Știu că mă pot baza pe ea pentru un sfat bun. Pe scurt, dacă te ții de treabă, este o plăcere să lucrezi cu ea."</p>
+          <footer class="tm-foot">
+            <span class="tm-avatar">M</span>
+            <div><p class="tm-name">Madalin Popa</p></div>
+          </footer>
+        </blockquote>
+        <blockquote class="tm-card">
+          <span class="tm-quote" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg></span>
+          <p class="tm-text">"Denisa a fost o revelație în viața mea. Înseamnă muncă, profesionalism, ambiție și optimism. Are ceva magic ce strecoară în programul meu care mă face să devin tot mai bună."</p>
+          <footer class="tm-foot">
+            <span class="tm-avatar">A</span>
+            <div><p class="tm-name">Andreea</p></div>
+          </footer>
+        </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta-band">
+      <div class="wrap">
+        <div class="cta-inner">
+          <div>
+            <h2>Ești gata să începi?</h2>
+            <p>Contactează-mă și vom stabili împreună cel mai bun plan pentru tine.</p>
+          </div>
+          <a class="btn btn-cta" href="https://denisadragomir.ro/contact" target="_blank" rel="noopener noreferrer">Contactează-mă <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="wrap footer-grid">
+      <div>
+        <p class="foot-label">Home</p>
+        <ul class="foot-links">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Coaching</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="foot-label">Conheus</p>
+        <ul class="foot-links">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Coaching</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="foot-label">Contact</p>
+        <ul class="foot-contact">
+          <li><span class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span> denisa.dragomir@yahoo.com</li>
+          <li><span class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span> (+40) 762.605.372</li>
+          <li><span class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></span> Brașov, România</li>
+        </ul>
+      </div>
+      <div>
+        <p class="foot-label">Social Media</p>
+        <div class="social">
+          <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="wrap foot-bottom">
+      <p>© 2026 denisadragomir.ro | Run wild, run strong.</p>
+      <p class="foot-wordmark">DENISA <span>DRAGOMIR</span></p>
+    </div>
+  </footer>
+
+</body>
+</html>

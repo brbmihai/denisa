@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Obiective — semimaraton, maraton, Ironman</title>
+    <meta
+      name="description"
+      content="Alege traseul tău: semimaraton, maraton sau Ironman. Structură asimetrică, pași clari, fără metrici inventate."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="fzh-design.css" />
+    <style>
+      .fzh-path {
+        display: grid;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+      @media (min-width: 900px) {
+        .fzh-path {
+          grid-template-columns: 1.15fr 1fr;
+          align-items: start;
+        }
+      }
+      .fzh-path-main {
+        padding: clamp(1.5rem, 4vw, 2.5rem);
+        border-radius: var(--radius-xl);
+        background: var(--surface);
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow-soft);
+      }
+      .fzh-path-side {
+        display: grid;
+        gap: 1rem;
+      }
+      .fzh-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 0.75rem;
+      }
+      .fzh-path h3 {
+        margin: 0 0 0.75rem;
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        letter-spacing: -0.03em;
+      }
+      .fzh-meter {
+        height: 0.35rem;
+        border-radius: 999px;
+        background: rgba(24, 24, 27, 0.08);
+        overflow: hidden;
+        margin: 1.25rem 0 0;
+      }
+      .fzh-meter span {
+        display: block;
+        height: 100%;
+        background: var(--accent);
+        border-radius: 999px;
+        transform-origin: left center;
+        animation: fzh-grow 1.1s var(--ease-spring) both;
+      }
+      @keyframes fzh-grow {
+        from {
+          transform: scaleX(0.15);
+        }
+        to {
+          transform: scaleX(1);
+        }
+      }
+      .fzh-note {
+        font-size: 0.8rem;
+        color: var(--muted);
+        margin-top: 1rem;
+        max-width: 52ch;
+      }
+      .fzh-split-banner {
+        margin-top: 3rem;
+        padding: clamp(1.75rem, 4vw, 2.5rem);
+        border-radius: var(--radius-xl);
+        background: linear-gradient(110deg, #18181b 0%, #27272a 48%, #18181b 100%);
+        color: #e4e4e7;
+        display: grid;
+        gap: 1.25rem;
+      }
+      @media (min-width: 720px) {
+        .fzh-split-banner {
+          grid-template-columns: 1fr auto;
+          align-items: center;
+        }
+      }
+      .fzh-split-banner p {
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.55;
+        max-width: 40rem;
+        color: #a1a1aa;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="fzh-nav">
+      <div class="fzh-wrap fzh-nav-inner">
+        <a class="fzh-logo" href="https://fromzerotohero.ro/">
+          <strong>From Zero to Hero</strong>
+          <span>Mihai Csengher · obiective de cursă lungă</span>
+        </a>
+        <nav class="fzh-nav-links" aria-label="Principal">
+          <a href="https://fromzerotohero.ro/">Acasă</a>
+          <a href="antrenamente.html">Antrenamente</a>
+          <a href="obiective.html" aria-current="page">Obiective</a>
+          <a href="discutie-gratuita.html">Discuție gratuită</a>
+        </nav>
+        <button type="button" class="fzh-menu-toggle" aria-expanded="false" aria-controls="mobile-nav" id="menu-btn">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+      <div class="fzh-wrap">
+        <div id="mobile-nav" class="fzh-mobile-panel">
+          <a href="https://fromzerotohero.ro/">Acasă</a>
+          <a href="antrenamente.html">Antrenamente</a>
+          <a href="obiective.html">Obiective</a>
+          <a href="discutie-gratuita.html">Discuție gratuită</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="fzh-wrap" style="padding-top: clamp(2rem, 5vw, 3.5rem); padding-bottom: 2rem">
+        <p class="fzh-kicker">Obiective</p>
+        <h1 class="fzh-h2" style="font-size: clamp(2rem, 4.5vw, 3.25rem); max-width: 18ch">
+          Semi maraton, maraton sau Ironman — același crez: consistență înainte de formă.
+        </h1>
+        <p class="fzh-lede" style="max-width: 42rem">
+          Pe site-ul public, mesajul este simplu: <strong>obiective ambițioase</strong>, dar cu pași respectabili pentru corpul și programul tău. Mai jos găsești trei
+          „linii” de lucru — nu sunt bare statistice cu cifre inventate; sunt doar o modalitate vizuală de a distinge intensitatea și aria sportivă.
+        </p>
+      </section>
+
+      <section class="fzh-section" style="padding-top: 0">
+        <div class="fzh-wrap">
+          <div class="fzh-path">
+            <article class="fzh-path-main">
+              <div class="fzh-chip">Semimaraton · ritm</div>
+              <h3>Distanță lungă, încă „agrabilă” pentru creier</h3>
+              <p class="fzh-prose" style="margin: 0">
+                Lucrezi toleranța la efort sustenabil, ritm și gestionarea zilelor obositoare de la birou. Ideal dacă vrei primul semimaraton curat ca
+                execuție sau revenire după pauză.
+              </p>
+              <div class="fzh-meter" aria-hidden="true"><span style="width: 42%"></span></div>
+              <p class="fzh-note">
+                Bară ilustrativă — nu reprezintă procent din competiție sau „progres real”; este doar reper vizual între cele trei obiective.
+              </p>
+            </article>
+            <div class="fzh-path-side">
+              <div class="fzh-media-card">
+                <img src="https://picsum.photos/seed/fzhhalf/880/540" alt="Grup de alergători la linia de start, atmosferă dimineață" width="880" height="540" />
+              </div>
+            </div>
+          </div>
+
+          <div class="fzh-path" style="margin-top: 2.5rem">
+            <article class="fzh-path-main" style="order: 2">
+              <div class="fzh-chip">Maraton · rezistență</div>
+              <h3>Când kilometrul 30 nu mai e „antrenament”, ci conversație cu tine</h3>
+              <p class="fzh-prose" style="margin: 0">
+                Planificare de blocuri, nutriție la efort, gestionarea zilelor cu patru ore de somn și strategii de cursă pentru zonele tale slabe. Nu
+                promitem perfecțiune — construim însă un maraton la care să ajungi întreg.
+              </p>
+              <div class="fzh-meter" aria-hidden="true"><span style="width: 68%"></span></div>
+              <p class="fzh-note">Ilustrație vizuală relativă între obiective; nu este dată biometrică.</p>
+            </article>
+            <div class="fzh-path-side" style="order: 1">
+              <div class="fzh-media-card">
+                <img src="https://picsum.photos/seed/fzhmara/880/540" alt="Stradă urbană cu alergători, cod galben pe asfalt" width="880" height="540" />
+              </div>
+            </div>
+          </div>
+
+          <div class="fzh-path" style="margin-top: 2.5rem">
+            <article class="fzh-path-main">
+              <div class="fzh-chip">Ironman · triatlon</div>
+              <h3>Trei discipline, o singură fișă de antrenament</h3>
+              <p class="fzh-prose" style="margin: 0">
+                Integrarea înotului, bicicletei și alergării într-un volum pe care îl poți duce luni de zile. Pe site, linia dedicată include explicit
+                tehnici de înot și același cadru de comunicare ca la alergare, cu tarif distinct (RON / lună) afișat public.
+              </p>
+              <div class="fzh-meter" aria-hidden="true"><span style="width: 100%"></span></div>
+              <p class="fzh-note">Compară vizual cu celelalte două carduri de mai sus — nu este scor de performanță.</p>
+            </article>
+            <div class="fzh-path-side">
+              <div class="fzh-media-card">
+                <img src="https://picsum.photos/seed/fzhiron/880/540" alt="Cască de biciclist și ochelari pe o masă de lucru" width="880" height="540" />
+              </div>
+            </div>
+          </div>
+
+          <div class="fzh-split-banner">
+            <p>
+              Nu am introdus „statistici” despre câți sportivi, câte ore sau procente — conform ghidului de design, evităm cifre fabricate. Dacă ai nevoie
+              de dovezi sociale, le legăm de site-ul live sau de conversație directă.
+            </p>
+            <a class="fzh-btn fzh-btn--primary" href="discutie-gratuita.html" style="justify-self: start">Programează discuția</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="fzh-section">
+        <div class="fzh-wrap">
+          <div class="fzh-zigzag">
+            <div class="fzh-zigzag__text">
+              <p class="fzh-kicker">Pasul următor</p>
+              <h2 class="fzh-h2">Ce facem după ce alegem obiectivul</h2>
+              <div class="fzh-prose">
+                <p>
+                  Traducem obiectivul în săptămâni care au sens pentru tine: unde creștem volumul, unde îl tăiem, unde introducem brusc sau lin recuperarea.
+                </p>
+                <p>
+                  Dacă nu ești încă hotărât între semimaraton și maraton, e în regulă — în discuția gratuită stabilim împreună ce e realist în calendarul tău.
+                </p>
+              </div>
+              <p style="margin-top: 1.25rem">
+                <a class="fzh-btn fzh-btn--ghost" href="antrenamente.html">Înapoi la antrenamente</a>
+              </p>
+            </div>
+            <div class="fzh-zigzag__media">
+              <div class="fzh-media-card">
+                <img src="https://picsum.photos/seed/fzhnext/900/620" alt="Planșetă cu note și creion pe bancă de parc" width="900" height="620" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="fzh-footer">
+      <div class="fzh-wrap fzh-footer-grid">
+        <div>
+          <strong>From Zero to Hero</strong>
+          <p style="margin: 0; font-size: 0.9rem; line-height: 1.55">Obiective de cursă lungă, cu picioarele pe pământ.</p>
+        </div>
+        <div>
+          <strong>Pagini demo</strong>
+          <ul>
+            <li><a href="antrenamente.html">Antrenamente</a></li>
+            <li><a href="obiective.html">Obiective</a></li>
+            <li><a href="discutie-gratuita.html">Discuție gratuită</a></li>
+          </ul>
+        </div>
+        <div>
+          <strong>Site live</strong>
+          <ul>
+            <li><a href="https://fromzerotohero.ro/">fromzerotohero.ro</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="fzh-wrap fzh-footer-bottom">
+        <span>© From Zero to Hero — pagină concept obiective.</span>
+        <span>Imagini placeholder: picsum.photos</span>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var btn = document.getElementById("menu-btn");
+        var panel = document.getElementById("mobile-nav");
+        if (!btn || !panel) return;
+        btn.addEventListener("click", function () {
+          var open = panel.classList.toggle("is-open");
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,165 @@
+{
+  "name": "Denisa Dragomir",
+  "modes": [
+    { "name": "Light", "modeId": "light" },
+    { "name": "Dark", "modeId": "dark" }
+  ],
+  "variables": [
+    {
+      "name": "color/coal",
+      "type": "COLOR",
+      "valuesByMode": {
+        "light": { "r": 0.051, "g": 0.051, "b": 0.043, "a": 1 },
+        "dark": { "r": 0.051, "g": 0.051, "b": 0.043, "a": 1 }
+      }
+    },
+    {
+      "name": "color/basalt",
+      "type": "COLOR",
+      "valuesByMode": {
+        "light": { "r": 0.122, "g": 0.129, "b": 0.102, "a": 1 },
+        "dark": { "r": 0.122, "g": 0.129, "b": 0.102, "a": 1 }
+      }
+    },
+    {
+      "name": "color/forest-night",
+      "type": "COLOR",
+      "valuesByMode": {
+        "light": { "r": 0.18, "g": 0.204, "b": 0.153, "a": 1 },
+        "dark": { "r": 0.18, "g": 0.204, "b": 0.153, "a": 1 }
+      }
+    },
+    {
+      "name": "color/stone",
+      "type": "COLOR",
+      "valuesByMode": {
+        "light": { "r": 0.851, "g": 0.886, "b": 0.835, "a": 1 },
+        "dark": { "r": 0.851, "g": 0.886, "b": 0.835, "a": 1 }
+      }
+    },
+    {
+      "name": "color/sand",
+      "type": "COLOR",
+      "valuesByMode": {
+        "light": { "r": 0.835, "g": 0.78, "b": 0.71, "a": 1 },
+        "dark": { "r": 0.835, "g": 0.78, "b": 0.71, "a": 1 }
+      }
+    },
+    {
+      "name": "color/clay",
+      "type": "COLOR",
+      "valuesByMode": {
+        "light": { "r": 0.627, "g": 0.545, "b": 0.271, "a": 1 },
+        "dark": { "r": 0.627, "g": 0.545, "b": 0.271, "a": 1 }
+      }
+    },
+    {
+      "name": "color/burnt-orange",
+      "type": "COLOR",
+      "valuesByMode": {
+        "light": { "r": 0.847, "g": 0.416, "b": 0.169, "a": 1 },
+        "dark": { "r": 0.847, "g": 0.416, "b": 0.169, "a": 1 }
+      }
+    },
+    {
+      "name": "color/alpine-moss",
+      "type": "COLOR",
+      "valuesByMode": {
+        "light": { "r": 0.42, "g": 0.439, "b": 0.373, "a": 1 },
+        "dark": { "r": 0.42, "g": 0.439, "b": 0.373, "a": 1 }
+      }
+    },
+    {
+      "name": "color/glacier-fog",
+      "type": "COLOR",
+      "valuesByMode": {
+        "light": { "r": 0.867, "g": 0.886, "b": 0.89, "a": 1 },
+        "dark": { "r": 0.867, "g": 0.886, "b": 0.89, "a": 1 }
+      }
+    },
+    {
+      "name": "font/display",
+      "type": "STRING",
+      "valuesByMode": {
+        "light": "Cormorant Garamond",
+        "dark": "Cormorant Garamond"
+      }
+    },
+    {
+      "name": "font/body",
+      "type": "STRING",
+      "valuesByMode": {
+        "light": "Inter",
+        "dark": "Inter"
+      }
+    },
+    {
+      "name": "font/handwritten",
+      "type": "STRING",
+      "valuesByMode": {
+        "light": "Caveat",
+        "dark": "Caveat"
+      }
+    },
+    {
+      "name": "type/display-hero",
+      "type": "FLOAT",
+      "valuesByMode": { "light": 40, "dark": 40 }
+    },
+    {
+      "name": "type/body",
+      "type": "FLOAT",
+      "valuesByMode": { "light": 16, "dark": 16 }
+    },
+    {
+      "name": "type/body-sm",
+      "type": "FLOAT",
+      "valuesByMode": { "light": 14, "dark": 14 }
+    },
+    {
+      "name": "type/label",
+      "type": "FLOAT",
+      "valuesByMode": { "light": 12, "dark": 12 }
+    },
+    {
+      "name": "type/nav",
+      "type": "FLOAT",
+      "valuesByMode": { "light": 12, "dark": 12 }
+    },
+    {
+      "name": "type/button",
+      "type": "FLOAT",
+      "valuesByMode": { "light": 14, "dark": 14 }
+    },
+    {
+      "name": "type/handwritten",
+      "type": "FLOAT",
+      "valuesByMode": { "light": 22, "dark": 22 }
+    },
+    {
+      "name": "type/polaroid-caption",
+      "type": "FLOAT",
+      "valuesByMode": { "light": 18.4, "dark": 18.4 }
+    },
+    {
+      "name": "type/form-input",
+      "type": "FLOAT",
+      "valuesByMode": { "light": 16, "dark": 16 }
+    },
+    {
+      "name": "spacing/section",
+      "type": "FLOAT",
+      "valuesByMode": { "light": 80, "dark": 80 }
+    },
+    {
+      "name": "radius/sm",
+      "type": "FLOAT",
+      "valuesByMode": { "light": 4, "dark": 4 }
+    },
+    {
+      "name": "radius/md",
+      "type": "FLOAT",
+      "valuesByMode": { "light": 8, "dark": 8 }
+    }
+  ]
+}

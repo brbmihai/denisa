@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Denisa Dragomir — Trail Running Coach</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --coal:#0D0D0B;
+  --basalt:#171714;
+  --paper:#EFE7DB;
+  --paper2:#F7F0E5;
+  --stone:#D5C7B5;
+  --fog:#F5F1E8;
+  --orange:#C86A2B;
+  --moss:#66755F;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--coal);
+  color:var(--fog);
+  font-family:'Inter',sans-serif;
+  overflow-x:hidden;
+}
+h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif}
+.menu{
+  font-size:13px;
+  font-weight:500;
+  text-transform:uppercase;
+  letter-spacing:.22em;
+}
+.eyebrow{
+  font-size:12px;
+  font-weight:500;
+  text-transform:uppercase;
+  letter-spacing:.32em;
+}
+.hero-title{
+  font-size:clamp(64px,9vw,128px);
+  line-height:.88;
+  letter-spacing:-.035em;
+  font-weight:500;
+}
+.section-title{
+  font-size:clamp(56px,7vw,92px);
+  line-height:.92;
+  letter-spacing:-.025em;
+  font-weight:500;
+}
+.organic{
+  border-radius:45% 55% 51% 49% / 38% 41% 59% 62%;
+  overflow:hidden;
+}
+.paper{
+  background:var(--paper);
+  color:#151512;
+  position:relative;
+}
+.paper:before{
+  content:"";
+  position:absolute;
+  top:-22px;
+  left:0;
+  width:100%;
+  height:44px;
+  background:radial-gradient(circle at 18px 34px, transparent 18px, var(--paper) 19px);
+  background-size:52px 44px;
+}
+.paper-card{
+  background:var(--paper2);
+  color:#151512;
+  transform:rotate(-2deg);
+  box-shadow:0 35px 90px rgba(0,0,0,.24);
+}
+.paperclip{
+  position:absolute;
+  width:54px;
+  top:-18px;
+  right:42px;
+  z-index:5;
+  cursor:grab;
+  transform:rotate(11deg);
+  filter:drop-shadow(0 12px 12px rgba(0,0,0,.2));
+}
+.texture:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:radial-gradient(circle at 1px 1px, rgba(255,255,255,.045) 1px, transparent 0);
+  background-size:24px 24px;
+  pointer-events:none;
+}
+.member{
+  background:rgba(255,255,255,.045);
+  border:1px solid rgba(255,255,255,.10);
+  backdrop-filter:blur(10px);
+}
+.topo-bg{
+  background-image:url('assets/topo-lines.svg');
+  background-size:cover;
+  background-position:center;
+}
+.footer-link{
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:.18em;
+}
+</style>
+</head>
+
+<body>
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-5 flex items-center justify-between">
+    <div>
+      <div class="serif text-3xl leading-none tracking-[.16em]">DENISA</div>
+      <div class="text-[11px] text-stone-400 tracking-[.28em] uppercase">Skyrunner Coach</div>
+    </div>
+    <nav class="hidden lg:flex gap-10 menu text-stone-200">
+      <a href="#">Story</a>
+      <a href="#">Plans</a>
+      <a href="#">Community</a>
+      <a href="#">Journal</a>
+    </nav>
+    <a class="menu border border-white/25 px-5 py-3 hover:bg-white hover:text-black transition" href="#">Join Club</a>
+  </div>
+</header>
+
+<section class="relative min-h-screen overflow-hidden texture">
+  <img src="assets/hero-background.jpg" class="absolute inset-0 w-full h-full object-cover opacity-70" alt="">
+  <div class="absolute inset-0 bg-gradient-to-r from-black via-black/55 to-black/10"></div>
+  <div class="absolute inset-0 topo-bg opacity-40"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 pt-40 pb-24 min-h-screen grid lg:grid-cols-12 gap-12 items-center">
+    <div class="lg:col-span-5">
+      <div class="eyebrow text-stone-400 mb-7">Built in the mountains</div>
+      <h1 class="hero-title mb-8">Run Mountains.<br>Be More You.</h1>
+      <p class="text-xl lg:text-2xl text-stone-300 leading-relaxed max-w-xl">
+        Elite trail running coaching, motherhood, mountain experience, and a community where progress has many forms.
+      </p>
+      <div class="mt-12 flex flex-wrap gap-5">
+        <a class="menu bg-orange-700 px-8 py-4" href="#">Explore Community</a>
+        <a class="menu border border-white/25 px-8 py-4" href="#">Training Plans</a>
+      </div>
+    </div>
+
+    <div class="lg:col-span-7 relative">
+      <div class="organic h-[78vh] min-h-[620px] shadow-2xl">
+        <img src="assets/hero-background.jpg" class="w-full h-full object-cover" alt="">
+      </div>
+      <div class="absolute bottom-10 left-8 bg-black/65 backdrop-blur-md p-7 max-w-sm border border-white/10">
+        <div class="eyebrow text-stone-400 mb-3">Athlete. Mother. Mentor.</div>
+        <div class="serif text-4xl leading-none">World-level experience, human guidance.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="paper py-28 lg:py-36">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-12 items-center">
+    <div class="lg:col-span-4 relative paper-card p-9 lg:p-12">
+      <img class="paperclip" src="assets/paperclip.svg" alt="">
+      <div class="eyebrow text-stone-500 mb-5">About Denisa</div>
+      <h2 class="section-title mb-8">Not just faster. Stronger inside.</h2>
+      <p class="text-stone-700 text-lg leading-loose">
+        From mountain roots to world-class skyrunning, Denisa brings race experience, motherhood, discipline, and calm coaching into one place.
+      </p>
+    </div>
+
+    <div class="lg:col-span-4 organic h-[620px]">
+      <img src="assets/about-paper-background.jpg" class="w-full h-full object-cover" alt="">
+    </div>
+
+    <div class="lg:col-span-4 space-y-8">
+      <div class="border-l-2 border-orange-700 pl-6">
+        <div class="serif text-5xl">World-level</div>
+        <p class="text-stone-600 mt-2">Skyrunning performance and mountain-race intelligence.</p>
+      </div>
+      <div class="border-l-2 border-orange-700 pl-6">
+        <div class="serif text-5xl">Mother</div>
+        <p class="text-stone-600 mt-2">A realistic view of strength, recovery, time, and consistency.</p>
+      </div>
+      <div class="border-l-2 border-orange-700 pl-6">
+        <div class="serif text-5xl">Community</div>
+        <p class="text-stone-600 mt-2">Beginners and elite athletes are part of the same mountain path.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="relative py-28 lg:py-40 overflow-hidden texture">
+  <img src="assets/community-background.jpg" class="absolute inset-0 w-full h-full object-cover opacity-30" alt="">
+  <div class="absolute inset-0 bg-black/70"></div>
+  <div class="absolute inset-0 topo-bg opacity-50"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="mb-20">
+      <div class="eyebrow text-stone-400 mb-5">Running Club</div>
+      <h2 class="section-title max-w-4xl">Different paths.<br>Same spirit.</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <article class="member organic p-6">
+        <img src="https://images.unsplash.com/photo-1549476464-37392f717541?q=80&w=1200&auto=format&fit=crop" class="w-full h-72 object-cover mb-6" alt="">
+        <h3 class="serif text-4xl">Ana</h3>
+        <p class="text-stone-400 leading-relaxed mt-3">From first 5K to first ultra. Performance means becoming braver than before.</p>
+      </article>
+      <article class="member organic p-6 lg:mt-20">
+        <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1200&auto=format&fit=crop" class="w-full h-72 object-cover mb-6" alt="">
+        <h3 class="serif text-4xl">Andrei</h3>
+        <p class="text-stone-400 leading-relaxed mt-3">International ultra podium finisher. Performance also means discipline over years.</p>
+      </article>
+      <article class="member organic p-6">
+        <img src="https://images.unsplash.com/photo-1483721310020-03333e577078?q=80&w=1200&auto=format&fit=crop" class="w-full h-72 object-cover mb-6" alt="">
+        <h3 class="serif text-4xl">Maria</h3>
+        <p class="text-stone-400 leading-relaxed mt-3">Returned to running after becoming a mom. Progress measured in consistency.</p>
+      </article>
+      <article class="member organic p-6 lg:mt-28">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" class="w-full h-72 object-cover mb-6" alt="">
+        <h3 class="serif text-4xl">Sonia</h3>
+        <p class="text-stone-400 leading-relaxed mt-3">First mountain race after injury. Confidence rebuilt step by step.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="paper py-28 lg:py-36">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-16 items-center">
+    <div>
+      <div class="eyebrow text-stone-500 mb-5">Training Plans</div>
+      <h2 class="section-title mb-10">Choose your mountain.</h2>
+      <div class="space-y-6 text-lg">
+        <div class="flex justify-between border-b border-stone-300 pb-5"><span>Beginner Trail Running</span><span>Start</span></div>
+        <div class="flex justify-between border-b border-stone-300 pb-5"><span>Ultra Running</span><span>Endurance</span></div>
+        <div class="flex justify-between border-b border-stone-300 pb-5"><span>Vertical / Skyrunning</span><span>Technical</span></div>
+        <div class="flex justify-between border-b border-stone-300 pb-5"><span>Return-to-running for Moms</span><span>Adaptive</span></div>
+      </div>
+    </div>
+
+    <div class="relative paper-card p-8 lg:p-10">
+      <img class="paperclip" src="assets/paperclip.svg" alt="">
+      <img src="assets/journal-paper-background.jpg" class="w-full h-[520px] object-cover mb-8" alt="">
+      <div class="serif text-5xl mb-4">Field notes, not fitness noise.</div>
+      <p class="text-stone-700 leading-loose">Training, recovery, fear, motherhood, race lessons, and mountain resilience.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="relative py-24 overflow-hidden">
+  <img src="assets/footer-background.jpg" class="absolute inset-0 w-full h-full object-cover opacity-30" alt="">
+  <div class="absolute inset-0 bg-black/70"></div>
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-12">
+    <div>
+      <div class="serif text-4xl mb-3">Denisa Dragomir</div>
+      <p class="text-stone-400 max-w-md leading-relaxed">Skyrunner coach, mountain mentor, and community builder.</p>
+    </div>
+    <div class="grid grid-cols-2 gap-8 footer-link text-stone-300">
+      <a href="#">Story</a>
+      <a href="#">Plans</a>
+      <a href="#">Community</a>
+      <a href="#">Journal</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.paperclip').forEach((clip)=>{
+  let dragging=false, x=0, y=0;
+  clip.addEventListener('mousedown',()=>{dragging=true; clip.style.cursor='grabbing';});
+  window.addEventListener('mouseup',()=>{dragging=false; clip.style.cursor='grab';});
+  window.addEventListener('mousemove',(e)=>{
+    if(!dragging) return;
+    x += e.movementX; y += e.movementY;
+    clip.style.transform = `translate(${x}px, ${y}px) rotate(11deg)`;
+  });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,327 @@
+/**
+ * Denisa Dragomir — Forms (mobile-first)
+ */
+
+/* ─── Form layout ─── */
+.ds-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  width: 100%;
+  max-width: var(--content-narrow);
+}
+.ds-form--wide { max-width: 40rem; }
+.ds-form-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+@media (min-width: 48rem) {
+  .ds-form-row--2 {
+    flex-direction: row;
+  }
+  .ds-form-row--2 > .ds-field { flex: 1; }
+}
+.ds-form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+@media (min-width: 48rem) {
+  .ds-form-actions--inline {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+/* ─── Field wrapper ─── */
+.ds-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.ds-field__label {
+  font-family: var(--font-body);
+  font-size: var(--text-form-label-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--text-form-label-lh);
+  letter-spacing: var(--letter-spacing-wide);
+  color: var(--color-coal);
+}
+.ds-field__label .required {
+  color: var(--color-burnt-orange);
+  margin-left: 0.15em;
+}
+.ds-field__hint {
+  font-size: var(--text-form-hint-size);
+  line-height: var(--text-form-hint-lh);
+  color: var(--color-text-muted);
+  margin-top: calc(-1 * var(--space-1));
+}
+.ds-field__error {
+  font-size: var(--text-form-error-size);
+  line-height: var(--text-form-error-lh);
+  color: var(--color-error);
+  display: none;
+}
+.ds-field.is-error .ds-field__error { display: block; }
+.ds-field.is-error .ds-input,
+.ds-field.is-error .ds-textarea,
+.ds-field.is-error .ds-select {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 1px var(--color-error);
+}
+
+/* ─── Text inputs ─── */
+.ds-input,
+.ds-textarea,
+.ds-select {
+  width: 100%;
+  min-height: var(--input-height);
+  padding: 0.75rem var(--input-padding-x);
+  font-family: var(--font-body);
+  font-size: var(--text-form-input-size);
+  line-height: var(--text-form-input-lh);
+  color: var(--color-coal);
+  background: var(--input-bg);
+  border: var(--input-border);
+  border-radius: var(--input-radius);
+  transition: border-color var(--duration-fast), box-shadow var(--duration-fast);
+  -webkit-appearance: none;
+  appearance: none;
+}
+.ds-input::placeholder,
+.ds-textarea::placeholder {
+  color: var(--color-alpine-moss);
+  opacity: 0.7;
+}
+.ds-input:hover,
+.ds-textarea:hover,
+.ds-select:hover {
+  border-color: var(--color-alpine-moss);
+}
+.ds-input:focus,
+.ds-textarea:focus,
+.ds-select:focus {
+  outline: none;
+  border-color: var(--input-border-focus);
+  box-shadow: var(--shadow-focus);
+}
+.ds-textarea {
+  min-height: 7rem;
+  resize: vertical;
+}
+.ds-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236B705F' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+/* Dark surface forms (Join club on hero) */
+.ds-form--on-dark .ds-field__label { color: var(--color-stone); }
+.ds-form--on-dark .ds-input,
+.ds-form--on-dark .ds-textarea,
+.ds-form--on-dark .ds-select {
+  background: var(--input-bg-dark);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--color-white);
+}
+.ds-form--on-dark .ds-input::placeholder { color: rgba(255, 255, 255, 0.5); }
+.ds-form--on-dark .ds-field__hint { color: var(--color-text-inverse-muted); }
+
+/* ─── Input sizes ─── */
+.ds-input--sm {
+  min-height: 2.5rem;
+  font-size: var(--text-body-sm-size);
+  padding: 0.5rem 0.75rem;
+}
+.ds-input--lg {
+  min-height: 3.5rem;
+  font-size: var(--text-body-lg-size);
+}
+@media (min-width: 64rem) {
+  .ds-input--lg { min-height: 3.75rem; }
+}
+
+/* ─── Input with icon ─── */
+.ds-input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.ds-input-group .ds-input { padding-left: 2.75rem; }
+.ds-input-group__icon {
+  position: absolute;
+  left: var(--input-padding-x);
+  color: var(--color-alpine-moss);
+  pointer-events: none;
+  font-size: 1rem;
+}
+
+/* ─── Checkbox & Radio ─── */
+.ds-check,
+.ds-radio {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  cursor: pointer;
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-lh);
+}
+.ds-check input,
+.ds-radio input {
+  width: 1.125rem;
+  height: 1.125rem;
+  margin-top: 0.15rem;
+  flex-shrink: 0;
+  accent-color: var(--color-burnt-orange);
+  cursor: pointer;
+}
+.ds-check-group,
+.ds-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.ds-radio-group--inline {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+@media (min-width: 48rem) {
+  .ds-check-group--cols {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+}
+
+/* ─── Toggle switch ─── */
+.ds-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  cursor: pointer;
+}
+.ds-toggle__track {
+  width: 2.75rem;
+  height: 1.5rem;
+  background: var(--color-glacier-fog);
+  border-radius: var(--radius-full);
+  position: relative;
+  transition: background var(--duration-fast);
+  flex-shrink: 0;
+}
+.ds-toggle__track::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 1.125rem;
+  height: 1.125rem;
+  background: var(--color-white);
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform var(--duration-fast);
+}
+.ds-toggle input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.ds-toggle input:checked + .ds-toggle__track {
+  background: var(--color-burnt-orange);
+}
+.ds-toggle input:checked + .ds-toggle__track::after {
+  transform: translateX(1.25rem);
+}
+.ds-toggle input:focus-visible + .ds-toggle__track {
+  box-shadow: var(--shadow-focus);
+}
+
+/* ─── File upload ─── */
+.ds-file {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-8) var(--space-4);
+  border: 1px dashed var(--color-alpine-moss);
+  border-radius: var(--radius-md);
+  background: var(--color-glacier-fog);
+  text-align: center;
+  cursor: pointer;
+  transition: border-color var(--duration-fast), background var(--duration-fast);
+}
+.ds-file:hover {
+  border-color: var(--color-burnt-orange);
+  background: var(--color-stone);
+}
+.ds-file input { display: none; }
+
+/* ─── Form card shells ─── */
+.ds-form-card {
+  background: var(--color-white);
+  padding: var(--space-6);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-polaroid);
+}
+@media (min-width: 48rem) {
+  .ds-form-card { padding: var(--space-8); }
+}
+.ds-form-card--paper {
+  background: var(--color-sand);
+  box-shadow: var(--shadow-polaroid);
+}
+.ds-form-card--dark {
+  background: var(--color-basalt);
+  color: var(--color-stone);
+}
+.ds-form-card__header {
+  margin-bottom: var(--space-6);
+}
+.ds-form-card__header p {
+  margin-top: var(--space-2);
+  font-size: var(--text-body-size);
+  color: var(--color-text-muted);
+}
+.ds-form-card--dark .ds-form-card__header p {
+  color: var(--color-text-inverse-muted);
+}
+
+/* ─── Newsletter inline ─── */
+.ds-newsletter {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+@media (min-width: 48rem) {
+  .ds-newsletter {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  .ds-newsletter .ds-input { flex: 1; }
+  .ds-newsletter .ds-btn { flex-shrink: 0; }
+}
+
+/* ─── Login / compact ─── */
+.ds-form-compact .ds-field { gap: var(--space-1); }
+.ds-form-compact .ds-input { min-height: 2.75rem; }
+
+/* Fieldset */
+.ds-fieldset {
+  border: 1px solid rgba(107, 112, 95, 0.25);
+  border-radius: var(--radius-sm);
+  padding: var(--space-4);
+  margin: 0;
+}
+.ds-fieldset legend {
+  font-family: var(--font-display);
+  font-size: var(--text-heading-sm-size);
+  padding: 0 var(--space-2);
+}

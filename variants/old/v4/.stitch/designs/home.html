@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Denisa Dragomir — Coach alergare montană</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #FAF4EC;
+      --white: #FFFFFF;
+      --ink: #1E2A24;
+      --slate: #5C6B63;
+      --terra: #C45C3E;
+      --terra-dark: #A34A32;
+      --amber: #D9A441;
+      --ridge: #2F4D3F;
+      --shadow: 0 8px 30px rgba(30, 42, 36, 0.06);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .hero-glow { animation: none !important; }
+    }
+
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--ink);
+      background: var(--cream);
+    }
+
+    /* --- Mountain horizon (CSS-only mood) --- */
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(250, 244, 236, 0.3) 0%, rgba(250, 244, 236, 0.95) 55%, var(--cream) 100%),
+        linear-gradient(135deg, #E8C9A8 0%, #c4d4c8 45%, #8fb3a8 100%);
+    }
+
+    .hero-sky {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(185deg, #ffd8b8 0%, #f0e4d8 35%, #b8cfc4 70%, #5a7d72 100%);
+      opacity: 0.85;
+    }
+
+    .mountains {
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 42%;
+      pointer-events: none;
+    }
+
+    .mountains svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .trail {
+      position: absolute;
+      bottom: 18%;
+      left: 50%;
+      width: min(520px, 85vw);
+      height: 3px;
+      transform: translateX(-50%) rotate(-8deg);
+      background: linear-gradient(90deg, transparent, rgba(250, 244, 236, 0.5), rgba(30, 42, 36, 0.15), transparent);
+      border-radius: 999px;
+      filter: blur(0.5px);
+    }
+
+    .runner {
+      position: absolute;
+      bottom: 22%;
+      left: 58%;
+      width: 56px;
+      height: 56px;
+      transform: translateX(-50%);
+      opacity: 0.92;
+    }
+
+    .runner svg { width: 100%; height: 100%; filter: drop-shadow(0 4px 12px rgba(30, 42, 36, 0.25)); }
+
+    .hero-glow {
+      position: absolute;
+      top: 15%;
+      right: 8%;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(217, 164, 65, 0.35) 0%, transparent 70%);
+      animation: pulse 8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.08); }
+    }
+
+    header {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem clamp(1.25rem, 4vw, 3rem);
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .logo {
+      font-family: "Fraunces", Georgia, serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .logo span { color: var(--terra); }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      opacity: 0.88;
+      transition: color 0.2s, opacity 0.2s;
+    }
+
+    nav a:hover { color: var(--terra); opacity: 1; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.65rem 1.35rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--terra);
+      color: var(--white);
+      box-shadow: 0 4px 18px rgba(196, 92, 62, 0.35);
+    }
+
+    .btn-primary:hover {
+      background: var(--terra-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.55);
+      color: var(--ridge);
+      border: 1.5px solid rgba(47, 77, 63, 0.35);
+    }
+
+    .btn-ghost:hover {
+      background: var(--ridge);
+      color: var(--white);
+      border-color: var(--ridge);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2rem clamp(1.25rem, 4vw, 3rem) 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .eyebrow {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ridge);
+      margin-bottom: 1rem;
+      opacity: 0.9;
+    }
+
+    h1 {
+      font-family: "Fraunces", Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      max-width: 14ch;
+      margin-bottom: 1.25rem;
+      color: var(--ink);
+    }
+
+    .lede {
+      font-size: 1.1rem;
+      color: var(--slate);
+      max-width: 36rem;
+      margin-bottom: 2rem;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+    }
+
+    .strip {
+      position: relative;
+      z-index: 2;
+      margin-top: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      padding: 0 clamp(1.25rem, 4vw, 3rem) 2rem;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+    }
+
+    @media (max-width: 640px) {
+      .strip { grid-template-columns: 1fr; }
+      nav { display: none; }
+      .runner { left: 62%; }
+    }
+
+    .chip {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 1rem 1.15rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(47, 77, 63, 0.06);
+    }
+
+    .chip strong {
+      display: block;
+      font-family: "Fraunces", serif;
+      font-size: 1.35rem;
+      color: var(--terra);
+      margin-bottom: 0.2rem;
+    }
+
+    .chip span {
+      font-size: 0.82rem;
+      color: var(--slate);
+      line-height: 1.4;
+    }
+
+    section.cards {
+      padding: 4rem clamp(1.25rem, 4vw, 3rem);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    section.cards h2 {
+      font-family: "Fraunces", serif;
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+      color: var(--ink);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(47, 77, 63, 0.06);
+    }
+
+    .card h3 {
+      font-family: "Fraunces", serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p { font-size: 0.95rem; color: var(--slate); }
+
+    footer {
+      background: var(--ridge);
+      color: rgba(255, 255, 255, 0.88);
+      padding: 2.5rem clamp(1.25rem, 4vw, 3rem);
+      margin-top: 2rem;
+    }
+
+    footer .inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    footer a { color: var(--amber); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <section class="hero" aria-label="Acasă">
+    <div class="hero-sky" aria-hidden="true"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="mountains" aria-hidden="true">
+      <svg viewBox="0 0 1200 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#2a3f36" d="M0,320 L0,180 L120,95 L220,140 L340,60 L480,130 L620,40 L780,120 L920,50 L1040,100 L1200,30 L1200,320 Z" opacity="0.92"/>
+        <path fill="#1E2A24" d="M0,320 L0,220 L180,150 L300,200 L440,120 L600,200 L760,130 L900,190 L1080,140 L1200,160 L1200,320 Z" opacity="0.55"/>
+      </svg>
+    </div>
+    <div class="trail" aria-hidden="true"></div>
+    <div class="runner" aria-hidden="true" title="Alergător pe potecă">
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="14" r="6" fill="#1E2A24"/>
+        <path d="M28 22 L36 22 L38 34 L44 42 L40 44 L34 36 L32 48 L26 48 L28 36 L22 42 L18 40 L26 32 Z" fill="#1E2A24"/>
+        <path d="M30 48 L28 58 M36 48 L38 58 M26 32 L18 38 M38 34 L46 30" stroke="#1E2A24" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <header>
+      <a class="logo" href="#">Denisa <span>Dragomir</span></a>
+      <nav aria-label="Principal">
+        <a href="#">Acasă</a>
+        <a href="#">Despre mine</a>
+        <a href="#">Planuri</a>
+        <a href="#">Blog</a>
+        <a href="#">Contact</a>
+        <a class="btn btn-primary" href="#">Scrie-mi</a>
+      </nav>
+    </header>
+
+    <div class="hero-inner">
+      <p class="eyebrow">Coach alergare · trail &amp; montan</p>
+      <h1>Putere calmă pe potecă și șosea.</h1>
+      <p class="lede">
+        Planuri de antrenament gândite pentru viața ta reală — de la primii pași pe munte până la obiective ambițioase de ultramaraton. Un ritm cald, constant, susținut.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#">Vezi planurile</a>
+        <a class="btn btn-ghost" href="#">Povestea mea</a>
+      </div>
+    </div>
+
+    <div class="strip">
+      <div class="chip">
+        <strong>15+</strong>
+        <span>ani pe trasee, șosea și competiții internaționale</span>
+      </div>
+      <div class="chip">
+        <strong>4</strong>
+        <span>niveluri de planuri — de la începători la pro</span>
+      </div>
+      <div class="chip">
+        <strong>1:1</strong>
+        <span>feedback uman, nu doar fișiere descărcabile</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="cards" aria-labelledby="servicii">
+    <h2 id="servicii">Cu ce te pot ajuta</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Planuri online</h3>
+        <p>Structură clară pe săptămâni, volum progresiv și mesaje care explică „de ce” în spatele fiecărui antrenament.</p>
+      </article>
+      <article class="card">
+        <h3>Montan &amp; ultra</h3>
+        <p>Diferență de nivel, denivelate, nutriție la efort lung — experiență trăită la concursuri și campionate.</p>
+      </article>
+      <article class="card">
+        <h3>Încredere măsurată</h3>
+        <p>Rezultate, media și testimoniale — transparență despre ce înseamnă să lucrezi cu mine.</p>
+      </article>
+    </div>
+  </section>
+
+  <footer>
+    <div class="inner">
+      <p>Referință vizuală Stitch · vibrație: cald, alergare pe potecă, munte.</p>
+      <p><a href="https://denisadragomir.ro">denisadragomir.ro</a> — rebuild coach edition</p>
+    </div>
+  </footer>
+</body>
+</html>

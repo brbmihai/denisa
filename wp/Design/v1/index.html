@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Denisa Dragomir</title>
+  <link href="./style.css" rel="stylesheet">
+  <meta
+    content="Your personalized digital companion for structured training plans, progress tracking, and professional fitness guidance, designed to keep you motivated and on t"
+    name="description">
+  <meta content="FitFocus" property="og:title">
+  <meta
+    content="Your personalized digital companion for structured training plans, progress tracking, and professional fitness guidance, designed to keep you motivated and on t"
+    property="og:description">
+  <meta content="./FitFocus.html" property="og:url">
+  <meta content="website" property="og:type">
+  <meta content="FitFocus" property="og:site_name">
+  <meta content="FitFocus" name="twitter:title">
+  <meta
+    content="Your personalized digital companion for structured training plans, progress tracking, and professional fitness guidance, designed to keep you motivated and on t"
+    name="twitter:description">
+  <meta content="summary_large_image" name="twitter:card">
+  <meta content="./FitFocus.html" name="twitter:url">
+  <meta content="yes" name="mobile-web-app-capable">
+  <meta content="black" name="apple-mobile-web-app-status-bar-style">
+  <meta content="FitFocus" name="apple-mobile-web-app-title">
+  <link href="./FitFocus.html" rel="canonical">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    :root {
+      --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-display: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    }
+
+    details.mobile-nav>summary {
+      list-style: none;
+    }
+
+    details.mobile-nav>summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.mobile-nav>summary .mobile-nav-icon-close {
+      display: none;
+    }
+
+    details.mobile-nav[open]>summary .mobile-nav-icon-menu {
+      display: none;
+    }
+
+    details.mobile-nav[open]>summary .mobile-nav-icon-close {
+      display: block;
+    }
+
+    /* Navbar shell: vertical padding here — prebuilt Tailwind bundle has no py-5 / md:py-6. */
+    .fitfocus-nav-shell {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      background-color: rgba(245, 240, 230, 0.7);
+    }
+    /* Navbar: logo | centered links | Contact — uses real columns (Tailwind bundle omits arbitrary grid / justify-self). */
+    .fitfocus-nav-row {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .fitfocus-nav-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      }
+
+      .fitfocus-nav-logo-wrap {
+        justify-self: start;
+      }
+
+      .fitfocus-nav-main {
+        justify-self: center;
+      }
+
+      .fitfocus-nav-cta-wrap {
+        justify-self: end;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+    }
+
+    /* Mobile: <details> sits in a narrow flex column; stretch panel to full nav bar width. */
+    .fitfocus-nav-main a,
+    .mobile-nav-panel a.font-medium {
+      color: hsl(var(--foreground));
+      transition: opacity 0.2s ease;
+    }
+
+    .fitfocus-nav-main a:hover,
+    .mobile-nav-panel a.font-medium:hover {
+      opacity: 0.82;
+    }
+
+    @media (max-width: 767px) {
+      .fitfocus-nav-shell {
+        position: relative;
+      }
+
+      .mobile-nav-panel {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: calc(100% + 0.25rem);
+        z-index: 60;
+        padding: 1rem 1rem 0.75rem;
+        margin-top: 0;
+        border-radius: 0 0 1rem 1rem;
+        background: rgba(245, 240, 230, 0.98);
+        backdrop-filter: blur(12px);
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+      }
+    }
+
+    /* Hero image: prebuilt Tailwind bundle has object-cover but not object-right. */
+    .fitfocus-hero-img {
+      object-position: left center;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root">
+    <div class="min-h-screen bg-background font-sans">
+      <nav class="fixed top-0 left-0 right-0 z-50 px-4 pt-4">
+        <div
+          class="fitfocus-nav-shell max-w-7xl mx-auto transition-all duration-500 backdrop-blur-md shadow-md shadow-black/5 rounded-2xl px-4 md:px-6">
+          <div class="fitfocus-nav-row">
+            <div class="fitfocus-nav-logo-wrap min-w-0">
+              <a class="logo flex shrink-0 items-center gap-2.5" href="#">
+                <img src="./logo.svg" alt="" width="40" height="42" class="h-16 w-auto shrink-0 object-contain"
+                  decoding="async">
+                <div>
+                  <p class="text-lg font-bold text-foreground leading-none tracking-wide">DENISA DRAGOMIR</p>
+                  <p class="text-lg text-muted-foreground leading-none mt-0.5">Trail Running Coach</p>
+                </div>
+              </a>
+            </div>
+            <nav class="fitfocus-nav-main hidden shrink-0 items-center gap-6 md:flex" aria-label="Main"><a
+                class="text-base font-medium"
+                href="#">Home</a><a
+                class="text-base font-medium"
+                href="#">About</a><a
+                class="text-base font-medium"
+                href="#">Coaching</a><a
+                class="text-base font-medium"
+                href="#">Blog</a></nav>
+            <div class="fitfocus-nav-cta-wrap min-w-0">
+              <a href="#contact"
+                class="hidden shrink-0 items-center px-5 py-2 bg-primary text-primary-foreground text-sm font-semibold rounded-xl hover:bg-primary/90 transition-all duration-200 md:flex">Contact</a>
+              <details class="md:hidden mobile-nav">
+              <summary
+                class="cursor-pointer p-1.5 text-foreground/70 hover:text-foreground transition-colors flex justify-end items-center"
+                aria-label="Toggle menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="mobile-nav-icon-menu lucide lucide-menu w-5 h-5" aria-hidden="true">
+                  <line x1="4" x2="20" y1="12" y2="12"></line>
+                  <line x1="4" x2="20" y1="6" y2="6"></line>
+                  <line x1="4" x2="20" y1="18" y2="18"></line>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="mobile-nav-icon-close lucide lucide-x w-5 h-5" aria-hidden="true">
+                  <path d="M18 6 6 18"></path>
+                  <path d="m6 6 12 12"></path>
+                </svg>
+              </summary>
+              <div
+                class="mobile-nav-panel flex flex-col gap-3"><a
+                  class="text-base font-medium py-0.5"
+                  href="#">Home</a><a
+                  class="text-base font-medium py-0.5"
+                  href="#">About</a><a
+                  class="text-base font-medium py-0.5"
+                  href="#">Coaching</a><a
+                  class="text-base font-medium py-0.5"
+                  href="#">Blog</a><a href="#contact"
+                  class="inline-flex items-center justify-center px-5 py-2.5 mt-1 bg-primary text-primary-foreground text-sm font-semibold rounded-xl hover:bg-primary/90 transition-all duration-200 w-full">Contact</a></div>
+              </details>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <section class="relative min-h-screen overflow-hidden bg-[#2C1F0E]">
+        <div class="absolute inset-0"><img src="./hero.jpg"
+            alt="Trail runner on mountain ridge at sunrise" class="absolute inset-0 h-full w-full object-cover fitfocus-hero-img">
+          <div class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/30 to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+        </div>
+        <div class="relative z-10 min-h-screen flex items-center">
+          <div class="max-w-7xl mx-auto px-5 md:px-10 pt-28 pb-16 w-full">
+            <div class="max-w-lg" style="opacity: 1; transform: none;">
+              <h1 class="font-display text-4xl md:text-5xl lg:text-6xl text-white font-bold leading-[1.1] mb-5">Planuri
+                de<br><span class="text-primary italic">Antrenament</span></h1>
+              <p class="text-white/70 text-base md:text-lg leading-relaxed mb-8 max-w-sm">Antrenament personalizat de
+                alergare montană și trail running. De la Denisa Dragomir.</p><a href="#plans"
+                class="inline-flex items-center gap-2 bg-primary text-primary-foreground px-7 py-3.5 rounded-xl text-sm font-bold hover:bg-primary/90 transition-all duration-200 shadow-lg shadow-primary/25">Explorează
+                Pachetele</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="bg-background py-16 md:py-20">
+        <div class="max-w-7xl mx-auto px-5 md:px-10">
+          <div class="max-w-2xl">
+            <div style="opacity: 1;">
+              <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground mb-4 leading-tight">Cultivă-ți
+                Forța,<br>în Mod Natural</h2>
+              <p class="text-muted-foreground text-base leading-relaxed mb-6">Coaching holistic — rezistență și
+                monitorizare, prevenire accidentări, mobilitate și stretching, alimentație și echipament. Plan de
+                antrenament 100% personalizat, livrat săptămânal și ajustat constant în funcție de evoluția ta.</p><a
+                href="#contact"
+                class="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:underline underline-offset-4 transition-all">Află
+                mai multe<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg></a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="plans" class="py-16 md:py-24 bg-background">
+        <div class="max-w-7xl mx-auto px-5 md:px-10 relative">
+          <div class="mb-10 md:mb-14" style="opacity: 1;">
+            <p class="text-primary text-xs font-bold tracking-[0.28em] uppercase mb-2">Pachete lunare</p>
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground mb-3">Alege planul tău</h2>
+            <p class="text-muted-foreground text-base max-w-md">Fiecare plan este construit pentru a te ajuta să îți
+              atingi obiectivele, indiferent de nivelul tău.</p>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+            <div
+              class="relative flex flex-col rounded-2xl overflow-hidden transition-all duration-300 bg-card border border-border/60 hover:shadow-lg hover:shadow-black/5"
+              style="opacity: 1;">
+              <div class="p-6 md:p-7 flex-1 flex flex-col">
+                <p class="text-xs font-bold tracking-[0.18em] uppercase mb-1 text-muted-foreground">Explorer</p>
+                <h3 class="text-lg font-bold mb-1 text-foreground">Beginners</h3>
+                <p class="text-xs leading-relaxed mb-5 text-muted-foreground">Plan lunar, feedback săptămânal de bază
+                </p>
+                <div class="w-10 h-10 rounded-full flex items-center justify-center mb-4 bg-[#8B6914]/10"><svg
+                    viewBox="0 0 24 24" class="w-5 h-5 text-[#8B6914]" fill="currentColor">
+                    <path
+                      d="M13.49 5.48c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-3.6 13.9l1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3c1.3 1.5 3.3 2.5 5.5 2.5v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1l-5.2 2.2v4.7h2v-3.4l1.8-.7-1.6 8.1-4.9-1-.4 2 7 1.4z">
+                    </path>
+                  </svg></div>
+                <div class="flex items-baseline gap-1 mb-6"><span
+                    class="text-4xl font-extrabold tracking-tight text-foreground">250</span><span
+                    class="text-sm font-medium text-muted-foreground">lei/lună</span></div>
+                <div class="h-px mb-5 bg-border"></div>
+                <ul class="space-y-2.5 flex-1">
+                  <li class="flex items-start gap-2.5">
+                    <div
+                      class="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 bg-primary/10">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-check w-2.5 h-2.5 text-primary">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg></div><span class="text-xs leading-relaxed text-muted-foreground">Ședință Skype pentru
+                      adaptarea corpului la efort</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <div
+                      class="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 bg-primary/10">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-check w-2.5 h-2.5 text-primary">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg></div><span class="text-xs leading-relaxed text-muted-foreground">Plan de antrenament
+                      personalizat 100%, livrat săptămânal</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <div
+                      class="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 bg-primary/10">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-check w-2.5 h-2.5 text-primary">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg></div><span class="text-xs leading-relaxed text-muted-foreground">Monitorizare antrenamente
+                      pe TrainingPeaks</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <div
+                      class="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 bg-primary/10">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-check w-2.5 h-2.5 text-primary">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg></div><span class="text-xs leading-relaxed text-muted-foreground">Grup de WhatsApp
+                      24/7</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <div
+                      class="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 bg-primary/10">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-check w-2.5 h-2.5 text-primary">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg></div><span class="text-xs leading-relaxed text-muted-foreground">Alegerea și pregătirea
+                      primei competiții</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <div
+                      class="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 bg-primary/10">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-check w-2.5 h-2.5 text-primary">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg></div><span class="text-xs leading-relaxed text-muted-foreground">Sfaturi echipament,
+                      mobilitate și stretching</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <div
+                      class="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 bg-primary/10">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-check w-2.5 h-2.5 text-primary">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg></div><span class="text-xs leading-relaxed text-muted-foreground">Exerciții pentru
+                      corectarea alergării</span>
+                  </li>
+                </ul><a href="#contact"
+                  class="mt-7 w-full py-3 rounded-xl text-sm font-bold text-center transition-all duration-200 block border-2 border-foreground/20 text-foreground hover:bg-foreground hover:text-background">Select
+                  Plan</a>
+              </div>
+            </div>
+            <div
+              class="relative flex flex-col rounded-2xl overflow-hidden transition-all duration-300 bg-card border border-border/60 hover:shadow-lg hover:shadow-black/5"
+              style="opacity: 1;">
+              <div class="p-6 md:p-7 flex-1 flex flex-col">
+                <p class="text-xs font-bold tracking-[0.18em] uppercase mb-1 text-muted-foreground">Peak Performance</p>
+                <h3 class="text-lg font-bold mb-1 text-foreground">Basic</h3>
+                <p class="text-xs leading-relaxed mb-5 text-muted-foreground">Plan personalizat, check-in săptămânal,
+                  ghidare nutriție</p>
+                <div class="w-10 h-10 rounded-full flex items-center justify-center mb-4 bg-[#8B6914]/10"><svg
+                    viewBox="0 0 24 24" class="w-5 h-5 text-[#8B6914]" fill="currentColor">
+                    <path
+                      d="M13.49 5.48c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-3.6 13.9l1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3c1.3 1.5 3.3 2.5 5.5 2.5v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1l-5.2 2.2v4.7h2v-3.4l1.8-.7-1.6 8.1-4.9-1-.4 2 7 1.4z">
+                    </path>
+                  </svg></div>
+                <div class="flex items-baseline gap-1 mb-6"><span
+                    class="text-4xl font-extrabold tracking-tight text-foreground">350</span><span
+                    class="text-sm font-medium text-muted-foreground">lei/lună</span></div>
+                <p class="text-xs font-medium mb-4 -mt-4 text-primary">10% reducere la plata în avans pe 3 luni – 315
+                  RON/lună</p>
+                <div class="h-px mb-5 bg-border"></div>
+                <ul class="space-y-2.5 flex-1">
+                  <li class="flex items-start gap-2.5">
+                    <div
+                      class="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 bg-primary/10">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-check w-2.5 h-2.5 text-primary">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg></div><span class="text-xs leading-relaxed text-muted-foreground">Ședință Skype pentru
+                      stabilirea obiectivelor</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <div
+                      class="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 bg-primary/10">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-check w-2.5 h-2.5 text-primary">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg></div><span class="text-xs leading-relaxed text-muted-foreground">Plan de antrenament 100%
+                      personalizat, livrat săptămânal</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <div
+                      class="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 bg-primary/10">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-check w-2.5 h-2.5 text-primary">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg></div><span class="text-xs leading-relaxed text-muted-foreground">Analiză activități la
+                      final de săptămână + feedback</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <div
+                      class="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 bg-primary/10">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-check w-2.5 h-2.5 text-primary">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg></div><span class="text-xs leading-relaxed text-muted-foreground">Monitorizare TrainingPeaks
+                      + WhatsApp 24/7</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <div
+                      class="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 bg-primary/10">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-check w-2.5 h-2.5 text-primary">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg></div><span class="text-xs leading-relaxed text-muted-foreground">Stabilirea calendarului
+                      competițional</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <div
+                      class="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 bg-primary/10">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-check w-2.5 h-2.5 text-primary">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg></div><span class="text-xs leading-relaxed text-muted-foreground">Sfaturi mobilitate,
+                      stretching, alimentație și echipament</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <div
+                      class="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 bg-primary/10">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-check w-2.5 h-2.5 text-primary">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg></div><span class="text-xs leading-relaxed text-muted-foreground">Analiza progresului la 3
+                      luni (video call)</span>
+                  </li>
+                </ul><a href="#contact"
+                  class="mt-7 w-full py-3 rounded-xl text-sm font-bold text-center transition-all duration-200 block border-2 border-foreground/20 text-foreground hover:bg-foreground hover:text-background">Select
+                  Plan</a>
+              </div>
+            </div>
+            <div
+              class="relative flex flex-col rounded-2xl overflow-hidden transition-all duration-300 bg-primary text-primary-foreground shadow-2xl shadow-primary/20"
+              style="opacity: 1;">
+              <div class="absolute top-4 right-4"><span
+                  class="bg-white/20 text-white text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full">Popular</span>
+              </div>
+              <div class="p-6 md:p-7 flex-1 flex flex-col">
+                <p class="text-xs font-bold tracking-[0.18em] uppercase mb-1 text-white/60">Elite Ultra</p>
+                <h3 class="text-lg font-bold mb-1 text-white">Advanced</h3>
+                <p class="text-xs leading-relaxed mb-5 text-white/70">Contact nelimitat, analiză video, strategie de
+                  cursă</p>
+                <div class="w-10 h-10 rounded-full flex items-center justify-center mb-4 bg-primary/20"><svg
+                    viewBox="0 0 24 24" class="w-5 h-5 text-primary" fill="currentColor">
+                    <path
+                      d="M13.49 5.48c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-3.6 13.9l1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3c1.3 1.5 3.3 2.5 5.5 2.5v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1l-5.2 2.2v4.7h2v-3.4l1.8-.7-1.6 8.1-4.9-1-.4 2 7 1.4z">
+                    </path>
+                  </svg></div>
+                <div class="flex items-baseline gap-1 mb-6"><span
+                    class="text-4xl font-extrabold tracking-tight text-white">450</span><span
+                    class="text-sm font-medium text-white/60">lei/lună</span></div>
+                <p class="text-xs font-medium mb-4 -mt-4 text-white/70">10% reducere la plata în avans pe 3 luni – 405
+                  RON/lună</p>
+                <div class="h-px mb-5 bg-white/15"></div>
+                <ul class="space-y-2.5 flex-1">
+                  <li class="flex items-start gap-2.5">
+                    <div class="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 bg-white/20">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-check w-2.5 h-2.5 text-white">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg></div><span class="text-xs leading-relaxed text-white/80">Toate beneficiile din planul
+                      Basic</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <div class="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 bg-white/20">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-check w-2.5 h-2.5 text-white">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg></div><span class="text-xs leading-relaxed text-white/80">Analiză activități de 2 ori pe
+                      săptămână + feedback</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <div class="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 bg-white/20">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-check w-2.5 h-2.5 text-white">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg></div><span class="text-xs leading-relaxed text-white/80">Ajustări ale antrenamentelor ori
+                      de câte ori e nevoie</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <div class="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 bg-white/20">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-check w-2.5 h-2.5 text-white">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg></div><span class="text-xs leading-relaxed text-white/80">Consiliere pre-competițională și
+                      plan de cursă</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <div class="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 bg-white/20">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-check w-2.5 h-2.5 text-white">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg></div><span class="text-xs leading-relaxed text-white/80">Antrenament de forță specific
+                      alergării</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <div class="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 bg-white/20">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-check w-2.5 h-2.5 text-white">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg></div><span class="text-xs leading-relaxed text-white/80">Înscrierea gratuită la o cursă din
+                      România (minim 6 luni)</span>
+                  </li>
+                </ul><a href="#contact"
+                  class="mt-7 w-full py-3 rounded-xl text-sm font-bold text-center transition-all duration-200 block bg-white text-primary hover:bg-white/90">Sign
+                  Up Now</a>
+              </div>
+            </div>
+            <div
+              class="relative flex flex-col rounded-2xl overflow-hidden transition-all duration-300 bg-card border border-border/60 hover:shadow-lg hover:shadow-black/5"
+              style="opacity: 1;">
+              <div class="p-6 md:p-7 flex-1 flex flex-col">
+                <p class="text-xs font-bold tracking-[0.18em] uppercase mb-1 text-muted-foreground">Summit</p>
+                <h3 class="text-lg font-bold mb-1 text-foreground">Pro</h3>
+                <p class="text-xs leading-relaxed mb-5 text-muted-foreground">Totul din Elite Ultra plus suport nutriție
+                  complet</p>
+                <div class="w-10 h-10 rounded-full flex items-center justify-center mb-4 bg-[#8B6914]/10"><svg
+                    viewBox="0 0 24 24" class="w-5 h-5 text-[#8B6914]" fill="currentColor">
+                    <path
+                      d="M13.49 5.48c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-3.6 13.9l1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3c1.3 1.5 3.3 2.5 5.5 2.5v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1l-5.2 2.2v4.7h2v-3.4l1.8-.7-1.6 8.1-4.9-1-.4 2 7 1.4z">
+                    </path>
+                  </svg></div>
+                <div class="flex items-baseline gap-1 mb-6"><span
+                    class="text-4xl font-extrabold tracking-tight text-foreground">600</span><span
+                    class="text-sm font-medium text-muted-foreground">lei/lună</span></div>
+                <p class="text-xs font-medium mb-4 -mt-4 text-primary">10% reducere la plata în avans pe 3 luni – 540
+                  RON/lună</p>
+                <div class="h-px mb-5 bg-border"></div>
+                <ul class="space-y-2.5 flex-1">
+                  <li class="flex items-start gap-2.5">
+                    <div
+                      class="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 bg-primary/10">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-check w-2.5 h-2.5 text-primary">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg></div><span class="text-xs leading-relaxed text-muted-foreground">Toate beneficiile din
+                      planul Advanced</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <div
+                      class="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 bg-primary/10">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-check w-2.5 h-2.5 text-primary">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg></div><span class="text-xs leading-relaxed text-muted-foreground">Feedback zilnic și analiză
+                      permanentă</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <div
+                      class="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 bg-primary/10">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-check w-2.5 h-2.5 text-primary">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg></div><span class="text-xs leading-relaxed text-muted-foreground">Ajustări constante ale
+                      planului de antrenament</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <div
+                      class="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 bg-primary/10">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-check w-2.5 h-2.5 text-primary">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg></div><span class="text-xs leading-relaxed text-muted-foreground">Video call lunar pentru
+                      analiza progresului</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <div
+                      class="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 bg-primary/10">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-check w-2.5 h-2.5 text-primary">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg></div><span class="text-xs leading-relaxed text-muted-foreground">Program de forță specific
+                      alergării</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <div
+                      class="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 bg-primary/10">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-check w-2.5 h-2.5 text-primary">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg></div><span class="text-xs leading-relaxed text-muted-foreground">Sfaturi nutriție și
+                      hidratare completă</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <div
+                      class="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 bg-primary/10">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-check w-2.5 h-2.5 text-primary">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg></div><span class="text-xs leading-relaxed text-muted-foreground">Înscrierea gratuită la o
+                      competiție din Italia (minim 6 luni)</span>
+                  </li>
+                </ul><a href="#contact"
+                  class="mt-7 w-full py-3 rounded-xl text-sm font-bold text-center transition-all duration-200 block border-2 border-foreground/20 text-foreground hover:bg-foreground hover:text-background">Select
+                  Plan</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="testimoniale" class="py-16 md:py-24 bg-[#2C1F0E]">
+        <div class="max-w-7xl mx-auto px-5 md:px-10">
+          <div class="mb-10 md:mb-14" style="opacity: 1;">
+            <p class="text-primary text-xs font-bold tracking-[0.28em] uppercase mb-2">Testimoniale</p>
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-3">Ce spun sportivii</h2>
+            <p class="text-white/50 text-base max-w-md">Povești reale de la oameni care au ales să facă un pas în plus.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+            <div
+              class="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col hover:bg-white/8 transition-colors"
+              style="opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-quote w-7 h-7 text-primary/50 mb-4">
+                <path
+                  d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z">
+                </path>
+                <path
+                  d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z">
+                </path>
+              </svg>
+              <p class="text-white/70 text-sm leading-relaxed flex-1 mb-5">"Când vrei să ajungi campion, alegeți model
+                un campion. Colaborez cu Denisa de 5 ani, iar rezultatele se văd: locul I la categoria de vârstă la
+                toate competițiile. Dovada că se poate la orice vârstă."</p>
+              <div class="flex items-center gap-3 pt-4 border-t border-white/10">
+                <div class="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center"><span
+                    class="text-primary font-bold text-sm">P</span></div>
+                <div>
+                  <p class="font-semibold text-sm text-white">Paraschiva Bors</p>
+                  <p class="text-xs text-white/40">56 ani</p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col hover:bg-white/8 transition-colors"
+              style="opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-quote w-7 h-7 text-primary/50 mb-4">
+                <path
+                  d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z">
+                </path>
+                <path
+                  d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z">
+                </path>
+              </svg>
+              <p class="text-white/70 text-sm leading-relaxed flex-1 mb-5">"Fiecare antrenament propus de ea este o
+                provocare și nu prea e timp de plictiseală. Feedbackul constant, împreună cu planul personalizat,
+                rezultă în alergări de care nu credeam că sunt în stare."</p>
+              <div class="flex items-center gap-3 pt-4 border-t border-white/10">
+                <div class="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center"><span
+                    class="text-primary font-bold text-sm">V</span></div>
+                <div>
+                  <p class="font-semibold text-sm text-white">Vlad</p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col hover:bg-white/8 transition-colors"
+              style="opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-quote w-7 h-7 text-primary/50 mb-4">
+                <path
+                  d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z">
+                </path>
+                <path
+                  d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z">
+                </path>
+              </svg>
+              <p class="text-white/70 text-sm leading-relaxed flex-1 mb-5">"Răbdarea, profesionalismul și antrenamentele
+                ei m-au adus destul de repede pe coclaurile mele dragi. Antrenamentele se updatează în funcție de orice
+                lucruri neprevăzute care pot apărea."</p>
+              <div class="flex items-center gap-3 pt-4 border-t border-white/10">
+                <div class="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center"><span
+                    class="text-primary font-bold text-sm">A</span></div>
+                <div>
+                  <p class="font-semibold text-sm text-white">Amalia</p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col hover:bg-white/8 transition-colors"
+              style="opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-quote w-7 h-7 text-primary/50 mb-4">
+                <path
+                  d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z">
+                </path>
+                <path
+                  d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z">
+                </path>
+              </svg>
+              <p class="text-white/70 text-sm leading-relaxed flex-1 mb-5">"M-a încurajat de fiecare dată când nu eram
+                sigur pe mine. Știu că mă pot baza pe ea pentru un sfat bun. Pe scurt, dacă te ții de treabă, este o
+                plăcere să lucrezi cu ea."</p>
+              <div class="flex items-center gap-3 pt-4 border-t border-white/10">
+                <div class="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center"><span
+                    class="text-primary font-bold text-sm">M</span></div>
+                <div>
+                  <p class="font-semibold text-sm text-white">Madalin Popa</p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col hover:bg-white/8 transition-colors"
+              style="opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-quote w-7 h-7 text-primary/50 mb-4">
+                <path
+                  d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z">
+                </path>
+                <path
+                  d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z">
+                </path>
+              </svg>
+              <p class="text-white/70 text-sm leading-relaxed flex-1 mb-5">"Denisa a fost o revelație în viața mea.
+                Înseamnă muncă, profesionalism, ambiție și optimism. Are ceva magic ce strecoară în programul meu care
+                mă face să devin tot mai bună."</p>
+              <div class="flex items-center gap-3 pt-4 border-t border-white/10">
+                <div class="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center"><span
+                    class="text-primary font-bold text-sm">A</span></div>
+                <div>
+                  <p class="font-semibold text-sm text-white">Andreea</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-16 md:py-20 bg-background">
+        <div class="max-w-7xl mx-auto px-5 md:px-10">
+          <div
+            class="bg-primary rounded-3xl px-8 md:px-14 py-12 md:py-16 flex flex-col md:flex-row items-center justify-between gap-8"
+            style="opacity: 1;">
+            <div>
+              <h2 class="font-display text-2xl md:text-4xl font-bold text-white mb-3">Ești gata să începi?</h2>
+              <p class="text-white/70 text-base max-w-sm">Contactează-mă și vom stabili împreună cel mai bun plan pentru
+                tine.</p>
+            </div><a href="#contact"
+              class="flex-shrink-0 inline-flex items-center gap-2 bg-white text-primary px-7 py-3.5 rounded-xl text-sm font-bold hover:bg-white/90 transition-all duration-200 shadow-lg">Contactează-mă<svg
+                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-arrow-right w-4 h-4">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg></a>
+          </div>
+        </div>
+      </section>
+      <footer id="contact" class="bg-[#1C1209] text-white/60 py-12 md:py-16">
+        <div class="max-w-7xl mx-auto px-5 md:px-10">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+            <div>
+              <p class="text-xs font-bold tracking-[0.2em] uppercase text-white/30 mb-4">Home</p>
+              <ul class="space-y-2 text-sm">
+                <li><a href="#" class="hover:text-primary transition-colors">About</a></li>
+                <li><a href="#" class="hover:text-primary transition-colors">Coaching</a></li>
+                <li><a href="#" class="hover:text-primary transition-colors">Blog</a></li>
+                <li><a href="#" class="hover:text-primary transition-colors">Contact</a></li>
+              </ul>
+            </div>
+            <div>
+              <p class="text-xs font-bold tracking-[0.2em] uppercase text-white/30 mb-4">Conheus</p>
+              <ul class="space-y-2 text-sm">
+                <li><a href="#" class="hover:text-primary transition-colors">About</a></li>
+                <li><a href="#" class="hover:text-primary transition-colors">Coaching</a></li>
+                <li><a href="#" class="hover:text-primary transition-colors">Blog</a></li>
+                <li><a href="#" class="hover:text-primary transition-colors">Contact</a></li>
+              </ul>
+            </div>
+            <div>
+              <p class="text-xs font-bold tracking-[0.2em] uppercase text-white/30 mb-4">Contact</p>
+              <ul class="space-y-2 text-sm">
+                <li class="flex items-start gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" class="lucide lucide-mail w-3.5 h-3.5 mt-0.5 text-primary flex-shrink-0">
+                    <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                  </svg>denisa.dragomir@yahoo.com</li>
+                <li class="flex items-start gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" class="lucide lucide-phone w-3.5 h-3.5 mt-0.5 text-primary flex-shrink-0">
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                    </path>
+                  </svg>(+40) 762.605.372</li>
+                <li class="flex items-start gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" class="lucide lucide-map-pin w-3.5 h-3.5 mt-0.5 text-primary flex-shrink-0">
+                    <path
+                      d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
+                    </path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>Brașov, România</li>
+              </ul>
+            </div>
+            <div>
+              <p class="text-xs font-bold tracking-[0.2em] uppercase text-white/30 mb-4">Social Media</p>
+              <div class="flex gap-3"><a href="#"
+                  class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary/30 hover:text-primary transition-all"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-instagram w-4 h-4">
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                  </svg></a><a href="#"
+                  class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary/30 hover:text-primary transition-all"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-facebook w-4 h-4">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                  </svg></a></div>
+            </div>
+          </div>
+          <div class="border-t border-white/8 mt-10 pt-8 flex flex-col md:flex-row items-center justify-between gap-3">
+            <p class="text-xs text-white/25">© 2026 Denisa Dragomir | Run wild, run strong.</p><span
+              class="text-xl font-bold text-white/20 tracking-tight">DENISA <span
+                class="text-primary/50">DRAGOMIR</span></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+</body>
+
+</html>

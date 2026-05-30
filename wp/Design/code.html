@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Academia de Alergare | Denisa Dragomir</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700;800&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#032015",
+                        "inverse-on-surface": "#ffeee1",
+                        "background": "#fff8f5",
+                        "surface-tint": "#486556",
+                        "on-surface-variant": "#424844",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#241910",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#fff1e8",
+                        "tertiary-container": "#393730",
+                        "on-tertiary-fixed": "#1d1c16",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#cac6bd",
+                        "on-tertiary": "#ffffff",
+                        "secondary": "#9a4600",
+                        "on-secondary-container": "#672c00",
+                        "on-secondary-fixed": "#321200",
+                        "secondary-fixed-dim": "#ffb68c",
+                        "surface-bright": "#fff8f5",
+                        "on-background": "#241910",
+                        "tertiary-fixed": "#e7e2d8",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#fd8a3e",
+                        "surface": "#fff8f5",
+                        "surface-container-highest": "#f4dfcf",
+                        "on-primary-container": "#89a897",
+                        "primary-fixed": "#caead7",
+                        "on-tertiary-container": "#a4a097",
+                        "on-primary-fixed-variant": "#304d3f",
+                        "on-tertiary-fixed-variant": "#494740",
+                        "primary-fixed-dim": "#aecebc",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#aecebc",
+                        "surface-container-high": "#fae4d4",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#ebd6c7",
+                        "outline-variant": "#c2c8c2",
+                        "primary": "#0a271b",
+                        "surface-variant": "#f4dfcf",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#753400",
+                        "inverse-surface": "#3a2e24",
+                        "secondary-fixed": "#ffdbc9",
+                        "tertiary": "#23221c",
+                        "outline": "#727974",
+                        "surface-container": "#ffeadb",
+                        "primary-container": "#213d30"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "container-max": "1280px",
+                        "base": "8px",
+                        "sm": "12px",
+                        "lg": "48px",
+                        "xl": "80px",
+                        "gutter": "24px",
+                        "md": "24px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Manrope"],
+                        "label-caps": ["Hanken Grotesk"],
+                        "h3": ["Hanken Grotesk"],
+                        "body-lg": ["Manrope"],
+                        "h1": ["Hanken Grotesk"],
+                        "h2": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "h3": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "h1": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "h2": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(245, 240, 230, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .soft-shadow {
+            box-shadow: 0 10px 40px -10px rgba(28, 18, 9, 0.08);
+        }
+        .path-line {
+            background: linear-gradient(to right, transparent, #213D30 15%, #213D30 85%, transparent);
+            height: 1px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Navigation -->
+<header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-surface-variant/30">
+<div class="flex justify-between items-center w-full px-gutter py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-2">
+<span class="font-h3 text-h3 text-primary tracking-tight">ACADEMIA DE ALERGARE</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-secondary font-bold border-b-2 border-secondary pb-1 text-sm tracking-wide transition-colors" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium tracking-wide" href="#about">About</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium tracking-wide" href="#coaching">Coaching</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium tracking-wide" href="#blog">Blog</a>
+</nav>
+<div class="hidden md:block">
+<a class="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-secondary-container text-on-secondary-container font-label-caps text-label-caps hover:bg-secondary hover:text-on-secondary transition-all duration-300 shadow-sm" href="#contact">
+                    Get Started
+                </a>
+</div>
+<button class="md:hidden text-primary p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative pt-32 pb-24 md:pt-48 md:pb-32 overflow-hidden min-h-[921px] flex items-center">
+<!-- Background Image -->
+<div class="absolute inset-0 z-0">
+<img alt="A serene, wide-angle landscape shot of a trail runner navigating a ridgeline during golden hour. The sunlight is warm and soft, casting long shadows across the alpine terrain. The mood is calm, expansive, and focused on endurance in nature. High-end photography style with a light, airy aesthetic." class="w-full h-full object-cover object-center opacity-90" data-alt="A serene, wide-angle landscape shot of a trail runner navigating a ridgeline during golden hour. The sunlight is warm and soft, casting long shadows across the alpine terrain. The mood is calm, expansive, and focused on endurance in nature. High-end photography style with a light, airy aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrMqXW-a73d6SZloub6XGM8RtxXjvnM-umI3Sji_FrBDq1OAhZl1xaiq-OaXWFLWeJBqI-BJYMHX9MC4p3KN8wE5CFuny7ibZxF6qlcX1NtdZznXXrl3DGu2v2PhoTIrwH_PvLO0ZhtWxl_asBzEMdC9zdSS1azKCLo4ZEoIblAq1Qaebl_wQ0ysmlCAYH4U6ZdkoMrzwsC7eIc9bS2aMtnqJrVrgnNnT79-MaCRVOs-OR8k0H8dFmDjn3fO8XtG4ALhK99pu2kqs"/>
+<!-- Gradient Overlay for readability -->
+<div class="absolute inset-0 bg-gradient-to-r from-background/95 via-background/70 to-transparent"></div>
+</div>
+<div class="relative z-10 w-full max-w-container-max mx-auto px-gutter">
+<div class="max-w-2xl">
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-high/80 backdrop-blur-sm border border-surface-variant mb-6">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">TRAIL RUNNING ACADEMY</span>
+</div>
+<h1 class="font-h1 text-h1 text-primary mb-6 leading-tight">
+                    Find Your Path <br/>
+<span class="text-secondary">Run Strong.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl">
+                    Personalized mountain running and trail plans by Denisa Dragomir. Experience holistic coaching designed for endurance, resilience, and the pure joy of the trail.
+                </p>
+<div class="flex flex-wrap items-center gap-4">
+<a class="px-8 py-4 rounded-full bg-secondary text-on-secondary font-label-caps text-label-caps hover:bg-secondary-container hover:text-on-secondary-container transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2" href="#plans">
+                        Explore Plans
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+<a class="px-8 py-4 rounded-full border-2 border-primary-container text-primary-container font-label-caps text-label-caps hover:bg-primary-container hover:text-on-primary transition-all duration-300" href="#about">
+                        Discover More
+                    </a>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Us (Philosophy) Section -->
+<section class="py-xl bg-surface-bright relative" id="about">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<!-- Imagery -->
+<div class="relative h-[600px] rounded-2xl overflow-hidden soft-shadow">
+<img alt="Close up of a trail runner's shoes on a dirt path in a forest during early morning light. The focus is on the tactile texture of the earth and the technical gear. The lighting is soft and natural, emphasizing the connection to the ground. Minimalist and organic aesthetic." class="w-full h-full object-cover" data-alt="Close up of a trail runner's shoes on a dirt path in a forest during early morning light. The focus is on the tactile texture of the earth and the technical gear. The lighting is soft and natural, emphasizing the connection to the ground. Minimalist and organic aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYn17jbVVtWFqFp2RDZqXgpd21vl3_EPj2aGERGOIvzxn-YWjymZX29cwz2kp8t6eC0KKZYrKIM6HzQncsS0M25VBC1OYtw3Lj_TgQvmgx77cdQmEd1GYiqjbVtkNSq794gLn5CB4im6ySqq83yq_2OwJBNiW9IkPJ-b0AmCn-rKj98eoN_tNWiNwDaQzq_48271IVSAe7HMN7Mq1mjQCACKtXHoXuG4QXtrC2QXOo3hVTE0ziSq6FuWPnQonS4MQ3H6hO6cqwAvE"/>
+<div class="absolute inset-0 border border-black/5 rounded-2xl"></div>
+</div>
+<!-- Content -->
+<div class="space-y-8">
+<div>
+<h2 class="font-h2 text-h2 text-primary mb-4">Cultivate Strength,<br/>Naturally.</h2>
+<div class="w-16 h-1 bg-secondary rounded-full mb-6"></div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Holistic coaching goes beyond just logging miles. It's about resilience, injury prevention, mobility, and proper nutrition. We provide 100% personalized training plans that adapt constantly to your evolution and the demands of the mountain.
+                        </p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+<div class="p-6 rounded-xl bg-surface-container-low border border-surface-variant/50 transition-transform hover:-translate-y-1 duration-300">
+<span class="material-symbols-outlined text-secondary mb-3 text-3xl">psychology</span>
+<h3 class="font-h3 text-[20px] text-primary mb-2">Holistic Approach</h3>
+<p class="text-sm text-on-surface-variant">Integrating physical conditioning with mental resilience and recovery strategies.</p>
+</div>
+<div class="p-6 rounded-xl bg-surface-container-low border border-surface-variant/50 transition-transform hover:-translate-y-1 duration-300">
+<span class="material-symbols-outlined text-secondary mb-3 text-3xl">monitoring</span>
+<h3 class="font-h3 text-[20px] text-primary mb-2">Adaptive Plans</h3>
+<p class="text-sm text-on-surface-variant">Your journey is unique. Plans adjust weekly based on your feedback and progress.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Running Plans Section (Bento Grid Style) -->
+<section class="py-xl bg-background relative" id="coaching">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase mb-2 block">Monthly Packages</span>
+<h2 class="font-h2 text-h2 text-primary mb-4">Choose Your Path</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    Every plan is constructed to help you reach your objectives, regardless of your current level.
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Plan 1 -->
+<div class="bg-surface-container-lowest rounded-2xl p-8 border border-surface-variant/50 soft-shadow flex flex-col relative overflow-hidden group hover:border-primary-container/30 transition-colors">
+<div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-6xl">terrain</span>
+</div>
+<div class="mb-6">
+<span class="inline-block px-3 py-1 rounded-full bg-surface-variant text-on-surface text-xs font-bold tracking-wider uppercase mb-4">Beginners</span>
+<h3 class="font-h3 text-[24px] text-primary mb-1">Explorer</h3>
+<p class="text-sm text-on-surface-variant">Monthly plan, basic weekly feedback</p>
+</div>
+<div class="mb-8">
+<div class="flex items-baseline gap-1">
+<span class="font-h1 text-[40px] text-primary">250</span>
+<span class="text-sm text-on-surface-variant font-medium">lei/month</span>
+</div>
+</div>
+<ul class="space-y-4 mb-8 flex-1 text-sm text-on-surface-variant">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Initial Skype session for adaptation</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>100% personalized training plan</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>TrainingPeaks monitoring</span>
+</li>
+</ul>
+<button class="w-full py-3 rounded-xl border border-primary text-primary font-label-caps text-label-caps hover:bg-primary hover:text-on-primary transition-colors">
+                        Select Plan
+                    </button>
+</div>
+<!-- Plan 2 (Highlighted) -->
+<div class="bg-primary-container rounded-2xl p-8 shadow-lg flex flex-col relative overflow-hidden transform md:-translate-y-4">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl text-on-primary">landscape</span>
+</div>
+<div class="absolute top-4 right-4">
+<span class="inline-block px-3 py-1 rounded-full bg-secondary text-on-secondary text-xs font-bold tracking-wider uppercase">Popular</span>
+</div>
+<div class="mb-6 relative z-10">
+<span class="inline-block px-3 py-1 rounded-full bg-primary-fixed/20 text-primary-fixed text-xs font-bold tracking-wider uppercase mb-4">Advanced</span>
+<h3 class="font-h3 text-[24px] text-on-primary mb-1">Elite Ultra</h3>
+<p class="text-sm text-primary-fixed-dim">Unlimited contact, video analysis, race strategy</p>
+</div>
+<div class="mb-8 relative z-10">
+<div class="flex items-baseline gap-1">
+<span class="font-h1 text-[48px] text-on-primary">450</span>
+<span class="text-sm text-primary-fixed-dim font-medium">lei/month</span>
+</div>
+</div>
+<ul class="space-y-4 mb-8 flex-1 text-sm text-primary-fixed">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-fixed-dim text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>All Basic plan benefits</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-fixed-dim text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Activity analysis twice a week + feedback</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-fixed-dim text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Pre-competition counseling &amp; race plan</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-fixed-dim text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Specific strength training for running</span>
+</li>
+</ul>
+<button class="w-full py-4 rounded-xl bg-secondary text-on-secondary font-label-caps text-label-caps hover:bg-secondary-container hover:text-on-secondary-container transition-colors relative z-10">
+                        Sign Up Now
+                    </button>
+</div>
+<!-- Plan 3 -->
+<div class="bg-surface-container-lowest rounded-2xl p-8 border border-surface-variant/50 soft-shadow flex flex-col relative overflow-hidden group hover:border-primary-container/30 transition-colors">
+<div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-6xl">volcano</span>
+</div>
+<div class="mb-6">
+<span class="inline-block px-3 py-1 rounded-full bg-surface-variant text-on-surface text-xs font-bold tracking-wider uppercase mb-4">Pro</span>
+<h3 class="font-h3 text-[24px] text-primary mb-1">Summit</h3>
+<p class="text-sm text-on-surface-variant">Elite Ultra + complete nutrition support</p>
+</div>
+<div class="mb-8">
+<div class="flex items-baseline gap-1">
+<span class="font-h1 text-[40px] text-primary">600</span>
+<span class="text-sm text-on-surface-variant font-medium">lei/month</span>
+</div>
+</div>
+<ul class="space-y-4 mb-8 flex-1 text-sm text-on-surface-variant">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>All Advanced plan benefits</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Daily feedback and permanent analysis</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Monthly video call for progress analysis</span>
+</li>
+</ul>
+<button class="w-full py-3 rounded-xl border border-primary text-primary font-label-caps text-label-caps hover:bg-primary hover:text-on-primary transition-colors">
+                        Select Plan
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Component generated from JSON -->
+<footer class="bg-inverse-surface dark:bg-on-primary-fixed full-width rounded-t-xl text-inverse-on-surface dark:text-primary-fixed font-body-md text-body-md mt-xl">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-lg px-gutter py-xl max-w-container-max mx-auto text-left">
+<div class="col-span-1 md:col-span-1">
+<h2 class="font-h2 text-h2 text-surface-bright mb-4 tracking-tight">ACADEMIA DE ALERGARE</h2>
+<p class="text-surface-variant/80 text-sm mb-6">Run wild, run strong.</p>
+<div class="flex gap-4">
+<a class="text-surface-variant/80 hover:text-surface-bright hover:translate-x-1 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-secondary" href="#">
+<span class="material-symbols-outlined">social_distance</span>
+</a>
+</div>
+</div>
+<div class="col-span-1">
+<h4 class="font-label-caps text-label-caps text-secondary-fixed-dim mb-4">Navigation</h4>
+<ul class="space-y-3">
+<li><a class="text-surface-variant/80 hover:text-surface-bright hover:translate-x-1 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-secondary block" href="#">Programs</a></li>
+<li><a class="text-surface-variant/80 hover:text-surface-bright hover:translate-x-1 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-secondary block" href="#">About Me</a></li>
+<li><a class="text-surface-variant/80 hover:text-surface-bright hover:translate-x-1 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-secondary block" href="#">Success Stories</a></li>
+<li><a class="text-surface-variant/80 hover:text-surface-bright hover:translate-x-1 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-secondary block" href="#">Blog</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h4 class="font-label-caps text-label-caps text-secondary-fixed-dim mb-4">Legal</h4>
+<ul class="space-y-3">
+<li><a class="text-surface-variant/80 hover:text-surface-bright hover:translate-x-1 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-secondary block" href="#">Privacy</a></li>
+<li><a class="text-surface-variant/80 hover:text-surface-bright hover:translate-x-1 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-secondary block" href="#">Terms</a></li>
+</ul>
+</div>
+<div class="col-span-1 md:col-span-4 mt-8 pt-8 border-t border-surface-variant/20 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-surface-variant/60 text-sm">© 2024 Denisa Dragomir | Run wild, run strong.</p>
+<!-- Decorative Path Element -->
+<div class="w-32 h-px bg-gradient-to-r from-transparent via-secondary-fixed-dim to-transparent opacity-30"></div>
+</div>
+</div>
+</footer>
+</body></html>

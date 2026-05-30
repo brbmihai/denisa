@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Discuție gratuită — From Zero to Hero</title>
+    <meta name="description" content="Programează o discuție gratuită cu Mihai Csengher: obiective, disponibilitate și pașii următori." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="fzh-design.css" />
+    <style>
+      .fzh-book {
+        display: grid;
+        gap: clamp(2rem, 5vw, 3rem);
+        align-items: start;
+        padding-top: clamp(2rem, 5vw, 3.5rem);
+        padding-bottom: clamp(3rem, 8vw, 5rem);
+      }
+      @media (min-width: 900px) {
+        .fzh-book {
+          grid-template-columns: 1fr 1.05fr;
+        }
+      }
+      .fzh-panel {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-xl);
+        padding: clamp(1.5rem, 4vw, 2.25rem);
+        box-shadow: var(--shadow-soft);
+      }
+      .fzh-aside-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.25rem 0 0;
+      }
+      .fzh-aside-list li {
+        padding: 0.85rem 0;
+        border-top: 1px solid var(--line);
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+      .fzh-aside-list li:first-child {
+        border-top: none;
+        padding-top: 0;
+      }
+      .fzh-float-label {
+        position: relative;
+      }
+      .fzh-success {
+        display: none;
+        margin-top: 1rem;
+        padding: 1rem 1.15rem;
+        border-radius: var(--radius-lg);
+        background: var(--accent-soft);
+        color: var(--ink);
+        font-size: 0.9rem;
+      }
+      .fzh-success.is-visible {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="fzh-nav">
+      <div class="fzh-wrap fzh-nav-inner">
+        <a class="fzh-logo" href="https://fromzerotohero.ro/">
+          <strong>From Zero to Hero</strong>
+          <span>Mihai Csengher · contact</span>
+        </a>
+        <nav class="fzh-nav-links" aria-label="Principal">
+          <a href="https://fromzerotohero.ro/">Acasă</a>
+          <a href="antrenamente.html">Antrenamente</a>
+          <a href="obiective.html">Obiective</a>
+          <a href="discutie-gratuita.html" aria-current="page">Discuție gratuită</a>
+        </nav>
+        <button type="button" class="fzh-menu-toggle" aria-expanded="false" aria-controls="mobile-nav" id="menu-btn">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+      <div class="fzh-wrap">
+        <div id="mobile-nav" class="fzh-mobile-panel">
+          <a href="https://fromzerotohero.ro/">Acasă</a>
+          <a href="antrenamente.html">Antrenamente</a>
+          <a href="obiective.html">Obiective</a>
+          <a href="discutie-gratuita.html">Discuție gratuită</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="fzh-wrap">
+      <div class="fzh-book">
+        <div>
+          <p class="fzh-kicker">Primul pas</p>
+          <h1 class="fzh-h2" style="font-size: clamp(2rem, 4vw, 3rem); max-width: 16ch">
+            Discuție gratuită,
+            <span class="fzh-inline-svg" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+            </span>
+            fără presiune.
+          </h1>
+          <p class="fzh-lede">
+            Completează formularul de mai jos — este un demo static pentru design. Pentru mesaje reale, folosește canalul de contact publicat pe site-ul
+            live From Zero to Hero.
+          </p>
+          <div class="fzh-panel" style="margin-top: 2rem; box-shadow: none">
+            <p style="margin: 0 0 0.75rem; font-weight: 600; color: var(--ink)">Ce clarificăm împreună</p>
+            <ul class="fzh-aside-list">
+              <li>Obiectivul tău curent (semimaraton, maraton sau ironman) și termenul realist.</li>
+              <li>Cum arată o săptămână tipică pentru tine: job, familie, recuperare.</li>
+              <li>Ce pachet se potrivește mai bine — linia de alergare sau cea de triatlon.</li>
+            </ul>
+          </div>
+          <p class="fzh-hint" style="margin-top: 1.5rem">
+            „Built with love in Târgu-Mureș” — mențiune din footer-ul site-ului live; o păstrăm ca semn de proveniență.
+          </p>
+        </div>
+
+        <div class="fzh-panel">
+          <h2 class="fzh-h2" style="font-size: 1.35rem; margin-bottom: 1.25rem">Scrie-mi câteva detalii</h2>
+          <form class="fzh-form" id="lead-form" novalidate>
+            <div class="fzh-form-grid fzh-form-grid--2">
+              <div>
+                <label for="nume">Nume</label>
+                <input id="nume" name="nume" type="text" autocomplete="name" required />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required />
+              </div>
+            </div>
+            <div style="margin-top: 1.15rem">
+              <label for="obiectiv">Obiectiv principal</label>
+              <select id="obiectiv" name="obiectiv" required>
+                <option value="" selected disabled>Selectează</option>
+                <option>Semimaraton</option>
+                <option>Maraton</option>
+                <option>Ironman / triatlon</option>
+                <option>Încă mă gândesc</option>
+              </select>
+            </div>
+            <div style="margin-top: 1.15rem">
+              <label for="mesaj">Mesaj scurt</label>
+              <textarea id="mesaj" name="mesaj" placeholder="Ex.: alerg de un an, am două sesiți pe săptămână, vreau primul semimaraton în toamnă."></textarea>
+              <p class="fzh-hint">Nu introduce date medicale sensibile; discuția clinică rămâne în afara acestui formular demo.</p>
+            </div>
+            <div style="margin-top: 1.5rem">
+              <button type="submit" class="fzh-btn fzh-btn--primary" style="width: 100%">Trimite (demo local)</button>
+            </div>
+            <div id="form-success" class="fzh-success" role="status">
+              Mulțumim — în producție, acest mesaj s-ar trimite către inbox. Aici este doar simulare în browser.
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <footer class="fzh-footer">
+      <div class="fzh-wrap fzh-footer-grid">
+        <div>
+          <strong>From Zero to Hero</strong>
+          <p style="margin: 0; font-size: 0.9rem; line-height: 1.55">
+            Pentru contact oficial și politici (confidențialitate, cookies), folosește
+            <a href="https://fromzerotohero.ro/">site-ul public</a>.
+          </p>
+        </div>
+        <div>
+          <strong>Pagini demo</strong>
+          <ul>
+            <li><a href="antrenamente.html">Antrenamente</a></li>
+            <li><a href="obiective.html">Obiective</a></li>
+            <li><a href="discutie-gratuita.html">Discuție gratuită</a></li>
+          </ul>
+        </div>
+        <div>
+          <strong>Site live</strong>
+          <ul>
+            <li><a href="https://fromzerotohero.ro/">fromzerotohero.ro</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="fzh-wrap fzh-footer-bottom">
+        <span>© From Zero to Hero — formular demonstrativ.</span>
+        <span>Imagini placeholder: picsum.photos</span>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var btn = document.getElementById("menu-btn");
+        var panel = document.getElementById("mobile-nav");
+        if (btn && panel) {
+          btn.addEventListener("click", function () {
+            var open = panel.classList.toggle("is-open");
+            btn.setAttribute("aria-expanded", open ? "true" : "false");
+          });
+        }
+        var form = document.getElementById("lead-form");
+        var ok = document.getElementById("form-success");
+        if (form && ok) {
+          form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            if (!form.checkValidity()) {
+              form.reportValidity();
+              return;
+            }
+            ok.classList.add("is-visible");
+            form.reset();
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

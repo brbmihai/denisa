@@ -1,0 +1,13 @@
+{
+  "name": "local-static-coach-site",
+  "projectId": "static-html",
+  "title": "Denisa Dragomir — Coach (static build)",
+  "visibility": "LOCAL",
+  "origin": "STATIC_GENERATOR",
+  "note": "No Stitch MCP in this Cursor workspace. HTML output is in site/public/. When Stitch is available, create a PROJECT_DESIGN project and replace projectId; sync screens via get_project.",
+  "screens": {},
+  "build": {
+    "generator": "scripts/build_site.py",
+    "publicDir": "site/public"
+  }
+}

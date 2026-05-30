@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Denisa Dragomir: Design System</title>
+  <meta name="description" content="Mobile-first design system preview for Denisa Dragomir trail running brand." />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="denisa-dragomir-variables.css" />
+  <link rel="stylesheet" href="denisa-dragomir-typography.css" />
+  <link rel="stylesheet" href="denisa-dragomir-components.css" />
+  <link rel="stylesheet" href="denisa-dragomir-forms.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; }
+    body {
+      font-family: var(--font-body);
+      font-size: var(--text-body-size);
+      line-height: var(--text-body-lh);
+      background: var(--color-glacier-fog);
+      color: var(--color-coal);
+    }
+    .preview-top {
+      position: sticky;
+      top: 0;
+      z-index: 300;
+      background: var(--color-coal);
+      color: var(--color-stone);
+      padding: var(--space-3) var(--space-section-x);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-3);
+    }
+    .preview-top h1 {
+      font-family: var(--font-display);
+      font-size: var(--text-heading-md-size);
+      font-weight: 500;
+    }
+    .bp-indicator {
+      font-family: var(--font-body);
+      font-size: var(--text-label-size);
+      font-weight: 600;
+      letter-spacing: var(--letter-spacing-nav);
+      text-transform: uppercase;
+      padding: 0.25rem 0.625rem;
+      background: var(--color-burnt-orange);
+      color: var(--color-white);
+      border-radius: 2px;
+    }
+    .bp-indicator::before { content: "Viewport: "; opacity: 0.85; font-weight: 400; }
+    .bp-indicator[data-bp="mobile"]::after { content: "Mobile (<768px)"; }
+    .bp-indicator[data-bp="tablet"]::after { content: "Tablet (768–1023px)"; }
+    .bp-indicator[data-bp="desktop"]::after { content: "Desktop (1024px+)"; }
+    .preview-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      font-size: var(--text-nav-size);
+    }
+    .preview-nav a {
+      color: var(--color-stone);
+      text-decoration: none;
+      padding: 0.5rem 0.625rem;
+      min-height: 2.75rem;
+      display: inline-flex;
+      align-items: center;
+    }
+    .preview-nav a:focus-visible {
+      outline: var(--focus-ring-width) solid var(--focus-ring-color);
+      outline-offset: 2px;
+    }
+    .preview-nav a:hover { color: var(--color-burnt-orange); }
+    .preview-section {
+      padding: var(--space-section-y) var(--space-section-x);
+      border-bottom: 1px solid rgba(107, 112, 95, 0.2);
+    }
+    .preview-section:nth-child(even) { background: var(--color-white); }
+    .preview-section__title {
+      font-family: var(--font-display);
+      font-size: var(--text-heading-lg-size);
+      font-weight: 500;
+      margin-bottom: var(--space-2);
+    }
+    .preview-section__desc {
+      font-size: var(--text-body-sm-size);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-8);
+      max-width: 40rem;
+    }
+    .component-stack {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+    }
+    .component-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      align-items: center;
+    }
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: var(--space-3);
+    }
+    .swatch {
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      box-shadow: var(--shadow-polaroid);
+    }
+    .swatch-color { height: 64px; }
+    .swatch-info {
+      background: var(--color-white);
+      padding: 0.5rem;
+      font-size: var(--text-caption-size);
+      line-height: var(--text-caption-lh);
+    }
+    .swatch-info strong { display: block; font-size: var(--text-caption-size); }
+    .forms-grid {
+      display: grid;
+      gap: var(--space-8);
+    }
+    @media (min-width: 64rem) {
+      .forms-grid { grid-template-columns: repeat(2, 1fr); align-items: start; }
+      .forms-grid .span-full { grid-column: 1 / -1; max-width: 40rem; }
+    }
+    .on-dark-demo {
+      background: var(--color-forest-night);
+      padding: var(--space-8);
+      border-radius: var(--radius-md);
+      margin-top: var(--space-6);
+    }
+    .type-table { width: 100%; }
+  </style>
+</head>
+<body>
+  <a class="skip-link text-button" href="#colors" style="position:absolute;left:-9999px;top:0;z-index:400;padding:0.5rem 1rem;background:var(--color-burnt-orange);color:var(--color-coal);text-decoration:none">Skip to content</a>
+  <header class="preview-top">
+    <h1>Denisa Dragomir: Design System</h1>
+    <span class="bp-indicator" id="bpIndicator" data-bp="mobile"></span>
+    <nav class="preview-nav" aria-label="Jump to section">
+      <a href="#colors">Colors</a>
+      <a href="#typography">Type</a>
+      <a href="#components">Components</a>
+      <a href="#forms">Forms</a>
+    </nav>
+  </header>
+
+  <!-- COLORS -->
+  <section class="preview-section" id="colors">
+    <div class="ds-container" style="padding: 0;">
+      <h2 class="preview-section__title">Color palette</h2>
+      <p class="preview-section__desc">Earthy neutrals with Burnt Orange accent. Mobile-first tokens scale spacing and type, not colors.</p>
+      <div class="swatches" id="swatches"></div>
+    </div>
+  </section>
+
+  <!-- TYPOGRAPHY -->
+  <section class="preview-section" id="typography">
+    <div class="ds-container" style="padding: 0;">
+      <h2 class="preview-section__title">Typography (mobile first)</h2>
+      <p class="preview-section__desc">
+        Base styles target mobile. Values increase at <strong>768px (tablet)</strong> and <strong>1024px (desktop)</strong>.
+        Resize the window to see live scale changes (check viewport badge above).
+      </p>
+
+      <div class="type-samples" style="background: var(--color-sand); padding: var(--space-6); border-radius: var(--radius-md); margin-bottom: var(--space-8);">
+        <p class="text-display-hero">Run Mountains. Be More You.</p>
+        <p class="text-display-lg" style="margin-top: var(--space-4);">About Denisa</p>
+        <p class="text-body-lg prose" style="margin-top: var(--space-4);">
+          I believe in consistent effort, mountain wisdom, community, and growth.
+        </p>
+        <p class="text-overline" style="margin-top: var(--space-6);">Upcoming adventures</p>
+      </div>
+
+      <h3 class="text-heading-md" style="margin-bottom: var(--space-4);">Full type scale</h3>
+      <div class="type-table">
+        <div class="type-scale-row"><div class="type-scale-meta">display-hero<br><span id="meta-hero"></span></div><p class="text-display-hero">Hero headline</p></div>
+        <div class="type-scale-row"><div class="type-scale-meta">display-xl</div><p class="text-display-xl">Display XL</p></div>
+        <div class="type-scale-row"><div class="type-scale-meta">display-lg</div><p class="text-display-lg">Display Large</p></div>
+        <div class="type-scale-row"><div class="type-scale-meta">display-md</div><p class="text-display-md">Display Medium</p></div>
+        <div class="type-scale-row"><div class="type-scale-meta">heading-xl</div><p class="text-heading-xl">Heading XL</p></div>
+        <div class="type-scale-row"><div class="type-scale-meta">heading-lg</div><p class="text-heading-lg">Heading Large</p></div>
+        <div class="type-scale-row"><div class="type-scale-meta">heading-md</div><p class="text-heading-md">Heading Medium</p></div>
+        <div class="type-scale-row"><div class="type-scale-meta">heading-sm</div><p class="text-heading-sm">Heading Small</p></div>
+        <div class="type-scale-row"><div class="type-scale-meta">body-xl</div><p class="text-body-xl">Body extra large for intros</p></div>
+        <div class="type-scale-row"><div class="type-scale-meta">body-lg</div><p class="text-body-lg">Body large paragraph</p></div>
+        <div class="type-scale-row"><div class="type-scale-meta">body</div><p class="text-body">Default body copy for articles and cards.</p></div>
+        <div class="type-scale-row"><div class="type-scale-meta">body-sm</div><p class="text-body-sm">Small body: member bios, metadata</p></div>
+        <div class="type-scale-row"><div class="type-scale-meta">label / overline</div><p><span class="text-label">Label</span> · <span class="text-overline">Overline</span></p></div>
+        <div class="type-scale-row"><div class="type-scale-meta">caption / nav</div><p><span class="text-caption">Caption text</span> · <span class="text-nav">Nav Link</span></p></div>
+        <div class="type-scale-row">
+          <div class="type-scale-meta">quote / handwritten</div>
+          <div>
+            <p class="text-quote">"Only friends you haven't met on the trail yet."</p>
+            <p class="text-handwritten" style="margin-top: var(--space-3)">Puternică pe munte, blândă în viață.</p>
+            <p class="text-handwritten script" style="margin-top: var(--space-2)">「Muntele nu e un loc, e un profesor.」</p>
+          </div>
+        </div>
+        <div class="type-scale-row">
+          <div class="type-scale-meta">polaroid-caption</div>
+          <p class="text-polaroid-caption">Summit day, Făgăraș · <span class="script">pe vârf!</span></p>
+        </div>
+        <div class="type-scale-row"><div class="type-scale-meta">stat</div><div class="ds-stat"><span class="text-stat-num">100K+</span><span class="text-stat-label">Beyond limits</span></div></div>
+        <div class="type-scale-row"><div class="type-scale-meta">form title / label</div><p class="text-form-title">Join the Club</p><p class="text-form-label" style="margin-top:0.25rem">Email address</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPONENTS -->
+  <section class="preview-section" id="components">
+    <div class="ds-container" style="padding: 0;">
+      <h2 class="preview-section__title">Components</h2>
+      <p class="preview-section__desc">All UI patterns from the mockup, built mobile-first with progressive enhancement.</p>
+
+      <div class="component-stack">
+        <!-- Header -->
+        <div>
+          <p class="text-overline" style="margin-bottom: var(--space-3);">Header / Navigation</p>
+          <header class="ds-header on-dark-solid" style="position: relative; color: var(--color-white); border-radius: var(--radius-sm);">
+            <a href="#" class="ds-logo">
+              <span class="ds-logo-mark">▲</span>
+              <span class="ds-logo-text">Denisa<br>Dragomir</span>
+            </a>
+            <nav class="ds-nav" aria-label="Main">
+              <a href="#" class="text-nav">Home</a>
+              <a href="#" class="text-nav">About</a>
+              <a href="#" class="text-nav">Coaching</a>
+              <a href="#" class="text-nav">Community</a>
+              <a href="#" class="ds-btn ds-btn--primary">Join the Club</a>
+            </nav>
+            <button type="button" class="ds-nav-toggle" aria-label="Menu">☰</button>
+          </header>
+        </div>
+
+        <!-- Buttons & links -->
+        <div>
+          <p class="text-overline" style="margin-bottom: var(--space-3);">Buttons & links</p>
+          <div class="component-row">
+            <button type="button" class="ds-btn ds-btn--primary">Join the Club</button>
+            <button type="button" class="ds-btn ds-btn--secondary">Learn more</button>
+            <button type="button" class="ds-btn ds-btn--ghost">View programs</button>
+            <button type="button" class="ds-btn ds-btn--icon" aria-label="Notifications">🔔</button>
+            <a href="#" class="ds-link">Explore coaching</a>
+          </div>
+          <div class="on-dark-demo on-dark component-row" style="margin-top: var(--space-4);">
+            <button type="button" class="ds-btn ds-btn--primary">Join the Community</button>
+            <button type="button" class="ds-btn ds-btn--secondary on-dark">Explore</button>
+            <div class="ds-stat on-dark"><span class="text-stat-num">100K+</span><span class="text-stat-label">Beyond limits</span></div>
+          </div>
+        </div>
+
+        <!-- Tags & stats -->
+        <div>
+          <p class="text-overline" style="margin-bottom: var(--space-3);">Tags, badges, stats</p>
+          <div class="component-row">
+            <span class="ds-tag">12 weeks</span>
+            <span class="ds-tag ds-tag--outline">Trail</span>
+            <span class="ds-tag ds-tag--dark">Ultra</span>
+            <span class="ds-badge">3</span>
+            <div class="ds-stat"><span class="text-stat-num">50K+</span><span class="text-stat-label">First ultra</span></div>
+          </div>
+        </div>
+
+        <!-- Cards -->
+        <div>
+          <p class="text-overline" style="margin-bottom: var(--space-3);">Cards</p>
+          <div class="ds-grid ds-grid-3">
+            <article class="ds-card ds-card--program">
+              <div class="ds-card__media">
+                <div class="ds-card__overlay"></div>
+                <div class="ds-card__content">
+                  <span class="ds-tag">12 weeks</span>
+                  <h3 class="text-display-md" style="color:var(--color-white);margin-top:0.5rem">50K</h3>
+                  <p class="text-body-sm" style="color:rgba(255,255,255,0.85)">Your first ultra journey</p>
+                </div>
+              </div>
+            </article>
+            <article class="ds-card">
+              <div class="ds-card__media" style="background: var(--color-alpine-moss)"></div>
+              <div class="ds-card__body">
+                <h3 class="text-heading-sm">First 5K</h3>
+                <p class="text-body-sm">Build confidence on the trails</p>
+                <a href="#" class="ds-link" style="margin-top:0.75rem;font-size:var(--text-body-sm-size)">Details</a>
+              </div>
+            </article>
+            <article class="ds-card ds-card--dark">
+              <div class="ds-card__body">
+                <h3 class="text-heading-sm text-on-dark">Community map</h3>
+                <p class="text-body-sm text-inverse-muted">Runners worldwide</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Polaroid (from despre.html) -->
+        <div>
+          <p class="text-overline" style="margin-bottom: var(--space-3);">Polaroid · figure.polaroid</p>
+          <p class="text-body-sm" style="margin-bottom: var(--space-4); max-width: 36rem;">
+            Semantic frame from the landing export: tape corners, 4:5 photo (grayscale by default), serif caption with <code class="text-caption">.script</code> accent. Source: <code class="text-caption">despre.html</code>.
+          </p>
+          <div class="component-row" style="align-items: flex-start; gap: var(--space-8);">
+            <figure class="polaroid">
+              <img
+                src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&amp;fit=crop&amp;w=400&amp;q=80"
+                alt="Childhood portrait placeholder"
+                width="256"
+                height="320"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>
+                <p>From a mountain village kid to world skyrunning champion and coach. <span class="script">Still learning.</span></p>
+              </figcaption>
+            </figure>
+            <figure class="polaroid polaroid--warm">
+              <img
+                class="color"
+                src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&amp;fit=crop&amp;w=400&amp;q=80"
+                alt="Sunlit mountain peaks above clouds"
+                width="256"
+                height="320"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>
+                <p>Strong on the mountain, gentle in life. <span class="script">Freedom</span></p>
+              </figcaption>
+            </figure>
+            <div class="ds-polaroid" aria-label="Legacy BEM placeholder (no image)">
+              <div class="ds-polaroid__img"></div>
+              <p class="ds-polaroid__caption">Placeholder frame</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Avatar, timeline -->
+        <div>
+          <p class="text-overline" style="margin-bottom: var(--space-3);">Avatar, timeline</p>
+          <div class="component-row" style="align-items: flex-start;">
+            <div class="ds-member">
+              <div class="ds-avatar"></div>
+              <p class="text-body-sm"><strong>Ana, 32</strong><br>Trail lover from Brașov</p>
+            </div>
+            <div class="ds-timeline" style="max-width:16rem">
+              <div class="ds-timeline__item">
+                <p class="ds-timeline__year">1992</p>
+                <p class="text-body-sm">Born in the mountains</p>
+              </div>
+              <div class="ds-timeline__item">
+                <p class="ds-timeline__year">2018</p>
+                <p class="text-body-sm">First ultra finish</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Alerts, breadcrumbs, tabs -->
+        <div>
+          <p class="text-overline" style="margin-bottom: var(--space-3);">Alerts, breadcrumbs, tabs, accordion</p>
+          <div class="ds-alert ds-alert--info" style="margin-bottom: var(--space-3);">New Dolomites camp: registrations open through June.</div>
+          <div class="ds-alert ds-alert--success" style="margin-bottom: var(--space-3);">Application received. We'll reply within 48 hours.</div>
+          <nav class="ds-breadcrumb" aria-label="Breadcrumb" style="margin-bottom: var(--space-4);">
+            <a href="#">Home</a><span aria-hidden> / </span><a href="#">Coaching</a><span aria-hidden> / </span><span>50K Program</span>
+          </nav>
+          <div class="ds-tabs" data-tabs>
+            <div class="ds-tabs__list" role="tablist" aria-label="Program categories">
+              <button type="button" class="ds-tabs__tab is-active" role="tab" id="tab-ultra" aria-selected="true" aria-controls="panel-ultra">Ultra</button>
+              <button type="button" class="ds-tabs__tab" role="tab" id="tab-beginner" aria-selected="false" aria-controls="panel-beginner" tabindex="-1">Beginner</button>
+              <button type="button" class="ds-tabs__tab" role="tab" id="tab-moms" aria-selected="false" aria-controls="panel-moms" tabindex="-1">Moms</button>
+            </div>
+            <div class="ds-tabs__panel is-active" role="tabpanel" id="panel-ultra" aria-labelledby="tab-ultra"><p class="text-body">50K, 100K, and 100 Miles programs with structured periodization.</p></div>
+            <div class="ds-tabs__panel" role="tabpanel" id="panel-beginner" aria-labelledby="tab-beginner" hidden><p class="text-body">Safe, effective plans from first 5K to trail confidence.</p></div>
+            <div class="ds-tabs__panel" role="tabpanel" id="panel-moms" aria-labelledby="tab-moms" hidden><p class="text-body">Running plans designed around motherhood and recovery.</p></div>
+          </div>
+          <div class="ds-accordion" style="margin-top: var(--space-6); max-width: 32rem;">
+            <div class="ds-accordion__item is-open">
+              <button type="button" class="ds-accordion__trigger" aria-expanded="true">What's included? <span aria-hidden="true">+</span></button>
+              <div class="ds-accordion__content" id="acc-1">Weekly plans, WhatsApp support, and community calls.</div>
+            </div>
+            <div class="ds-accordion__item">
+              <button type="button" class="ds-accordion__trigger" aria-expanded="false">Refund policy <span aria-hidden="true">+</span></button>
+              <div class="ds-accordion__content" id="acc-2" hidden>Full refund within 7 days if no coaching has started.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Search, tooltip, CTA, quote, footer -->
+        <div>
+          <p class="text-overline" style="margin-bottom: var(--space-3);">Search, tooltip, CTA, quote, footer</p>
+          <div class="ds-search" style="max-width:20rem;margin-bottom:var(--space-4)">
+            <span aria-hidden>🔍</span>
+            <input type="search" placeholder="Search journal…" aria-label="Search" />
+          </div>
+          <span class="ds-tooltip-wrap">
+            <button type="button" class="ds-btn ds-btn--secondary">Hover me</button>
+            <span class="ds-tooltip">Trail tip</span>
+          </span>
+          <div class="ds-cta-band" style="margin-top: var(--space-6); border-radius: var(--radius-md);">
+            <p class="text-display-md text-on-dark">Join the Club</p>
+            <p class="text-body text-inverse-muted" style="margin: var(--space-3) auto var(--space-5); max-width:28rem">Training tips, community events, and mountain stories.</p>
+            <button type="button" class="ds-btn ds-btn--primary">Join the Community</button>
+          </div>
+          <div class="ds-quote-block" style="margin-top: var(--space-6); border-radius: var(--radius-md);">
+            <p class="text-quote">In this community, there are no strangers. Only friends you haven't met on the trail yet.</p>
+          </div>
+          <footer class="ds-footer" style="margin-top: var(--space-6); border-radius: var(--radius-md);">
+            <div class="ds-footer__grid">
+              <div>
+                <p class="text-label text-on-dark" style="opacity:0.7">Denisa Dragomir</p>
+                <p class="text-body-sm" style="margin-top:0.5rem;color:var(--color-stone)">Trail running coach</p>
+              </div>
+              <div><p class="text-overline" style="color:var(--color-stone);margin-bottom:0.5rem">Explore</p><a href="#">Coaching</a><br><a href="#">Community</a></div>
+              <div><p class="text-overline" style="color:var(--color-stone);margin-bottom:0.5rem">Connect</p><a href="#">Instagram</a><br><a href="#">Contact</a></div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMS -->
+  <section class="preview-section" id="forms">
+    <div class="ds-container" style="padding: 0;">
+      <h2 class="preview-section__title">Forms</h2>
+      <p class="preview-section__desc">Mobile: stacked fields, full-width CTAs. Tablet+: two-column rows, inline newsletter. Touch targets ≥44px.</p>
+
+      <div class="forms-grid">
+        <!-- Join the Club -->
+        <div class="ds-form-card">
+          <div class="ds-form-card__header">
+            <h3 class="text-form-title">Join the Club</h3>
+            <p>Free community access: training tips and event invites.</p>
+          </div>
+          <form class="ds-form" action="#" novalidate>
+            <div class="ds-form-row ds-form-row--2">
+              <div class="ds-field">
+                <label class="ds-field__label" for="first">First name <span class="required">*</span></label>
+                <input class="ds-input" id="first" name="first" type="text" placeholder="Denisa" required autocomplete="given-name" />
+              </div>
+              <div class="ds-field">
+                <label class="ds-field__label" for="last">Last name</label>
+                <input class="ds-input" id="last" name="last" type="text" placeholder="Dragomir" autocomplete="family-name" />
+              </div>
+            </div>
+            <div class="ds-field">
+              <label class="ds-field__label" for="email-join">Email <span class="required">*</span></label>
+              <div class="ds-input-group">
+                <span class="ds-input-group__icon" aria-hidden>@</span>
+                <input class="ds-input" id="email-join" name="email" type="email" placeholder="you@email.com" required autocomplete="email" />
+              </div>
+              <span class="ds-field__hint">We'll never share your email.</span>
+            </div>
+            <div class="ds-field">
+              <label class="ds-field__label" for="experience">Running experience</label>
+              <select class="ds-select" id="experience" name="experience">
+                <option value="">Select level</option>
+                <option>Beginner (road or trail)</option>
+                <option>Regular (half marathon+)</option>
+                <option>Ultra (50K+)</option>
+              </select>
+            </div>
+            <label class="ds-check">
+              <input type="checkbox" name="newsletter" checked />
+              <span class="text-body-sm">Send me weekly trail tips and camp announcements</span>
+            </label>
+            <div class="ds-form-actions">
+              <button type="submit" class="ds-btn ds-btn--primary ds-btn--block">Join the Community</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Coaching application -->
+        <div class="ds-form-card ds-form-card--paper">
+          <div class="ds-form-card__header">
+            <h3 class="text-form-title">Coaching application</h3>
+            <p>Tell us about your goals: 50K, 100K, or 100 Miles.</p>
+          </div>
+          <form class="ds-form" action="#">
+            <fieldset class="ds-fieldset">
+              <legend>Program interest</legend>
+              <div class="ds-radio-group ds-radio-group--inline">
+                <label class="ds-radio"><input type="radio" name="program" value="50k" checked /> 50K</label>
+                <label class="ds-radio"><input type="radio" name="program" value="100k" /> 100K</label>
+                <label class="ds-radio"><input type="radio" name="program" value="100mi" /> 100 Miles</label>
+              </div>
+            </fieldset>
+            <div class="ds-field">
+              <label class="ds-field__label" for="goals">Your goals</label>
+              <textarea class="ds-textarea" id="goals" name="goals" placeholder="Race date, terrain, weekly hours…"></textarea>
+              <span class="ds-field__hint">Max 500 characters</span>
+            </div>
+            <label class="ds-toggle">
+              <span class="text-body-sm">I've run an ultra before</span>
+              <input type="checkbox" name="ultra" />
+              <span class="ds-toggle__track" aria-hidden="true"></span>
+            </label>
+            <div class="ds-form-actions ds-form-actions--inline">
+              <button type="submit" class="ds-btn ds-btn--primary">Submit application</button>
+              <button type="button" class="ds-btn ds-btn--secondary">Save draft</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Dark hero form -->
+        <div class="span-full on-dark-demo">
+          <form class="ds-form ds-form--on-dark ds-form--wide" action="#" style="max-width:36rem">
+            <h3 class="text-form-title text-on-dark">Get on the start list</h3>
+            <p class="text-body-sm text-inverse-muted" style="margin-bottom:var(--space-4)">Dolomites camp · July 2026</p>
+            <div class="ds-form-row ds-form-row--2">
+              <div class="ds-field">
+                <label class="ds-field__label" for="camp-email">Email</label>
+                <input class="ds-input" id="camp-email" type="email" placeholder="you@email.com" />
+              </div>
+              <div class="ds-field">
+                <label class="ds-field__label" for="camp-phone">Phone (optional)</label>
+                <input class="ds-input" id="camp-phone" type="tel" placeholder="+40 …" />
+              </div>
+            </div>
+            <button type="submit" class="ds-btn ds-btn--primary">Reserve interest</button>
+          </form>
+        </div>
+
+        <!-- Newsletter + error state -->
+        <div class="ds-form-card">
+          <h3 class="text-form-title">Newsletter</h3>
+          <form class="ds-newsletter" style="margin-top:var(--space-4)" action="#">
+            <input class="ds-input" type="email" placeholder="Email address" aria-label="Email" />
+            <button type="submit" class="ds-btn ds-btn--primary">Subscribe</button>
+          </form>
+          <hr class="ds-divider" style="margin: var(--space-8) 0" />
+          <div class="ds-field is-error">
+            <label class="ds-field__label" for="email-err">Email (error state)</label>
+            <input class="ds-input" id="email-err" type="email" value="not-an-email" aria-invalid="true" />
+            <span class="ds-field__error">Please enter a valid email address.</span>
+          </div>
+        </div>
+
+        <!-- File upload + compact login -->
+        <div class="ds-form-card">
+          <h3 class="text-form-title">Upload & login</h3>
+          <label class="ds-file" style="margin: var(--space-6) 0">
+            <input type="file" accept="image/*" />
+            <span class="text-body-sm"><strong>Drop race photo</strong><br>PNG or JPG, max 5MB</span>
+          </label>
+          <form class="ds-form ds-form-compact" action="#">
+            <div class="ds-field">
+              <label class="ds-field__label" for="login-email">Email</label>
+              <input class="ds-input ds-input--sm" id="login-email" type="email" autocomplete="username" />
+            </div>
+            <div class="ds-field">
+              <label class="ds-field__label" for="login-pass">Password</label>
+              <input class="ds-input ds-input--sm" id="login-pass" type="password" autocomplete="current-password" />
+            </div>
+            <div class="ds-check-group ds-check-group--cols">
+              <label class="ds-check"><input type="checkbox" /> Remember me</label>
+              <label class="ds-check"><input type="checkbox" /> Marketing emails</label>
+            </div>
+            <button type="submit" class="ds-btn ds-btn--primary ds-btn--block">Sign in</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const colors = [
+      ["Coal", "#0D0D0B"], ["Basalt", "#1F211A"], ["Forest Night", "#2E3427"],
+      ["Stone", "#D9E2D5"], ["Sand", "#D5C7B5"], ["Clay", "#A08B45"],
+      ["Burnt Orange", "#D86A2B"], ["Alpine Moss", "#6B705F"], ["Glacier Fog", "#DDE2E3"],
+    ];
+    document.getElementById("swatches").innerHTML = colors.map(([n, h]) =>
+      `<div class="swatch"><div class="swatch-color" style="background:${h}"></div><div class="swatch-info"><strong>${n}</strong>${h}</div></div>`
+    ).join("");
+
+    function updateBp() {
+      const w = window.innerWidth;
+      const el = document.getElementById("bpIndicator");
+      const bp = w >= 1024 ? "desktop" : w >= 768 ? "tablet" : "mobile";
+      el.dataset.bp = bp;
+      const hero = getComputedStyle(document.documentElement).getPropertyValue("--text-display-hero-size").trim();
+      const meta = document.getElementById("meta-hero");
+      if (meta) meta.textContent = hero + " / " + bp;
+    }
+    window.addEventListener("resize", updateBp);
+    updateBp();
+
+    document.querySelectorAll("[data-tabs]").forEach((root) => {
+      const tabs = [...root.querySelectorAll(".ds-tabs__tab")];
+      const panels = [...root.querySelectorAll(".ds-tabs__panel")];
+      const activate = (index) => {
+        tabs.forEach((tab, i) => {
+          const selected = i === index;
+          tab.classList.toggle("is-active", selected);
+          tab.setAttribute("aria-selected", String(selected));
+          tab.tabIndex = selected ? 0 : -1;
+          panels[i].classList.toggle("is-active", selected);
+          panels[i].hidden = !selected;
+        });
+      };
+      tabs.forEach((tab, i) => {
+        tab.addEventListener("click", () => activate(i));
+        tab.addEventListener("keydown", (e) => {
+          let next = i;
+          if (e.key === "ArrowRight") next = (i + 1) % tabs.length;
+          else if (e.key === "ArrowLeft") next = (i - 1 + tabs.length) % tabs.length;
+          else if (e.key === "Home") next = 0;
+          else if (e.key === "End") next = tabs.length - 1;
+          else return;
+          e.preventDefault();
+          activate(next);
+          tabs[next].focus();
+        });
+      });
+    });
+
+    document.querySelectorAll(".ds-accordion__item").forEach((item) => {
+      const btn = item.querySelector(".ds-accordion__trigger");
+      const content = item.querySelector(".ds-accordion__content");
+      btn.addEventListener("click", () => {
+        const willOpen = content.hidden;
+        content.hidden = !willOpen;
+        item.classList.toggle("is-open", willOpen);
+        btn.setAttribute("aria-expanded", String(willOpen));
+      });
+    });
+  </script>
+</body>
+</html>

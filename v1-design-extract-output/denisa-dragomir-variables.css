@@ -1,0 +1,255 @@
+/**
+ * Denisa Dragomir — CSS custom properties (mobile-first base)
+ * Tablet: 768px+ · Desktop: 1024px+
+ */
+
+:root {
+  /* Breakpoints (reference only — use in @media) */
+  --bp-tablet: 48rem;   /* 768px */
+  --bp-desktop: 64rem;  /* 1024px */
+  --bp-wide: 80rem;     /* 1280px */
+
+  /* Colors */
+  --color-coal: #0d0d0b;
+  --color-basalt: #1f211a;
+  --color-forest-night: #2e3427;
+  --color-stone: #d9e2d5;
+  --color-sand: #d5c7b5;
+  --color-clay: #a08b45;
+  --color-burnt-orange: #d86a2b;
+  --color-alpine-moss: #6b705f;
+  --color-glacier-fog: #dde2e3;
+  --color-white: #ffffff;
+  --color-error: #b33a2c;
+  --color-success: #4a6b4f;
+  --color-warning: #c47d2a;
+
+  --color-bg-dark: var(--color-coal);
+  --color-bg-dark-elevated: var(--color-basalt);
+  --color-bg-light: var(--color-stone);
+  --color-bg-paper: var(--color-sand);
+
+  --color-text-primary: var(--color-coal);
+  --color-text-on-dark: var(--color-white);
+  --color-text-muted: var(--color-alpine-moss);
+  --color-text-accent: var(--color-burnt-orange);
+  --color-text-inverse-muted: rgba(255, 255, 255, 0.75);
+
+  /* Typography — families */
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+  --font-handwritten: "Caveat", "Segoe Script", cursive;
+
+  /* Typography — mobile-first scale (default) */
+  --text-display-hero-size: 2.5rem;
+  --text-display-hero-lh: 1.08;
+  --text-display-hero-ls: -0.02em;
+
+  --text-display-xl-size: 2rem;
+  --text-display-xl-lh: 1.1;
+  --text-display-lg-size: 1.75rem;
+  --text-display-lg-lh: 1.12;
+  --text-display-md-size: 1.5rem;
+  --text-display-md-lh: 1.15;
+
+  --text-heading-xl-size: 1.375rem;
+  --text-heading-xl-lh: 1.2;
+  --text-heading-lg-size: 1.25rem;
+  --text-heading-lg-lh: 1.25;
+  --text-heading-md-size: 1.125rem;
+  --text-heading-md-lh: 1.3;
+  --text-heading-sm-size: 1rem;
+  --text-heading-sm-lh: 1.35;
+
+  --text-body-xl-size: 1.0625rem;
+  --text-body-xl-lh: 1.6;
+  --text-body-lg-size: 1rem;
+  --text-body-lg-lh: 1.6;
+  --text-body-size: 0.9375rem;
+  --text-body-lh: 1.65;
+  --text-body-sm-size: 0.8125rem;
+  --text-body-sm-lh: 1.5;
+
+  --text-label-size: 0.6875rem;
+  --text-label-lh: 1.4;
+  --text-overline-size: 0.6875rem;
+  --text-overline-lh: 1.3;
+  --text-caption-size: 0.75rem;
+  --text-caption-lh: 1.45;
+
+  --text-nav-size: 0.6875rem;
+  --text-nav-lh: 1.2;
+  --text-button-size: 0.8125rem;
+  --text-button-lh: 1.2;
+
+  --text-quote-size: 1.25rem;
+  --text-quote-lh: 1.45;
+  --text-handwritten-size: 1.375rem;
+  --text-handwritten-lh: 1.3;
+
+  --text-stat-num-size: 1.75rem;
+  --text-stat-num-lh: 1;
+  --text-stat-label-size: 0.6875rem;
+  --text-stat-label-lh: 1.4;
+
+  /* Form typography — mobile */
+  --text-form-title-size: 1.5rem;
+  --text-form-title-lh: 1.2;
+  --text-form-label-size: 0.8125rem;
+  --text-form-label-lh: 1.3;
+  --text-form-input-size: 1rem;
+  --text-form-input-lh: 1.5;
+  --text-form-hint-size: 0.75rem;
+  --text-form-hint-lh: 1.45;
+  --text-form-error-size: 0.75rem;
+  --text-form-error-lh: 1.45;
+
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.04em;
+  --letter-spacing-nav: 0.08em;
+  --letter-spacing-overline: 0.12em;
+
+  /* Spacing — mobile-first */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  --space-section-y: 3rem;
+  --space-section-x: 1.25rem;
+  --space-gutter: 1rem;
+  --space-stack: 1rem;
+  --space-inline: 0.75rem;
+
+  /* Layout */
+  --content-max-width: 75rem;
+  --content-narrow: 36rem;
+  --header-height: 3.5rem;
+
+  /* Radius */
+  --radius-none: 0;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-polaroid: 0 4px 24px rgba(13, 13, 11, 0.15);
+  --shadow-card: 0 8px 32px rgba(13, 13, 11, 0.25);
+  --shadow-dropdown: 0 12px 40px rgba(13, 13, 11, 0.2);
+  --shadow-focus: 0 0 0 3px rgba(216, 106, 43, 0.35);
+
+  /* Motion */
+  --duration-fast: 200ms;
+  --duration-normal: 300ms;
+  --duration-slow: 800ms;
+  --ease-default: cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  /* Components */
+  --button-primary-bg: var(--color-burnt-orange);
+  --button-primary-text: var(--color-white);
+  --button-primary-hover: #c25f26;
+  --button-secondary-border: var(--color-coal);
+  --stat-box-bg: var(--color-basalt);
+
+  --input-height: 3rem;
+  --input-padding-x: 1rem;
+  --input-border: 1px solid rgba(107, 112, 95, 0.45);
+  --input-border-focus: var(--color-burnt-orange);
+  --input-bg: var(--color-white);
+  --input-bg-dark: rgba(255, 255, 255, 0.06);
+  --input-radius: var(--radius-sm);
+}
+
+/* Tablet */
+@media (min-width: 48rem) {
+  :root {
+    --text-display-hero-size: 3.5rem;
+    --text-display-xl-size: 2.75rem;
+    --text-display-lg-size: 2.25rem;
+    --text-display-md-size: 1.875rem;
+
+    --text-heading-xl-size: 1.625rem;
+    --text-heading-lg-size: 1.375rem;
+    --text-heading-md-size: 1.25rem;
+
+    --text-body-size: 1rem;
+    --text-body-lg-size: 1.0625rem;
+    --text-body-xl-size: 1.125rem;
+
+    --text-nav-size: 0.75rem;
+    --text-button-size: 0.875rem;
+    --text-quote-size: 1.5rem;
+    --text-stat-num-size: 2.25rem;
+
+    --text-form-title-size: 1.75rem;
+    --text-form-input-size: 1rem;
+
+    --space-section-y: 4.5rem;
+    --space-section-x: 2rem;
+    --space-gutter: 1.5rem;
+    --space-stack: 1.25rem;
+    --header-height: 4rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 64rem) {
+  :root {
+    --text-display-hero-size: 4.5rem;
+    --text-display-hero-lh: 1.05;
+    --text-display-xl-size: 3.5rem;
+    --text-display-lg-size: 3rem;
+    --text-display-md-size: 2.25rem;
+
+    --text-heading-xl-size: 2rem;
+    --text-heading-lg-size: 1.75rem;
+    --text-heading-md-size: 1.5rem;
+    --text-heading-sm-size: 1.25rem;
+
+    --text-body-xl-size: 1.125rem;
+    --text-body-lg-size: 1.0625rem;
+    --text-body-size: 1rem;
+
+    --text-nav-size: 0.8125rem;
+    --text-label-size: 0.75rem;
+    --text-overline-size: 0.75rem;
+    --text-quote-size: 1.75rem;
+    --text-handwritten-size: 1.625rem;
+    --text-stat-num-size: 2.5rem;
+    --text-stat-label-size: 0.75rem;
+
+    --text-form-title-size: 2rem;
+    --text-form-label-size: 0.875rem;
+
+    --space-section-y: 6rem;
+    --space-section-x: 2.5rem;
+    --space-gutter: 2rem;
+    --space-stack: 1.5rem;
+    --header-height: 4.5rem;
+    --input-height: 3.25rem;
+  }
+}
+
+/* Wide desktop */
+@media (min-width: 80rem) {
+  :root {
+    --text-display-hero-size: 6rem;
+    --text-display-xl-size: 4rem;
+    --space-section-y: 7.5rem;
+  }
+}

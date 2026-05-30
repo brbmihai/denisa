@@ -1,0 +1,107 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "color": {
+    "coal": { "$value": "#0D0D0B", "$type": "color" },
+    "basalt": { "$value": "#1F211A", "$type": "color" },
+    "forest-night": { "$value": "#2E3427", "$type": "color" },
+    "stone": { "$value": "#D9E2D5", "$type": "color" },
+    "sand": { "$value": "#D5C7B5", "$type": "color" },
+    "clay": { "$value": "#A08B45", "$type": "color" },
+    "burnt-orange": { "$value": "#D86A2B", "$type": "color" },
+    "alpine-moss": { "$value": "#6B705F", "$type": "color" },
+    "glacier-fog": { "$value": "#DDE2E3", "$type": "color" },
+    "white": { "$value": "#FFFFFF", "$type": "color" },
+    "background": {
+      "dark": { "$value": "{color.coal}", "$type": "color" },
+      "dark-elevated": { "$value": "{color.basalt}", "$type": "color" },
+      "light": { "$value": "{color.stone}", "$type": "color" },
+      "paper": { "$value": "{color.sand}", "$type": "color" }
+    },
+    "foreground": {
+      "primary": { "$value": "{color.coal}", "$type": "color" },
+      "on-dark": { "$value": "{color.white}", "$type": "color" },
+      "muted": { "$value": "{color.alpine-moss}", "$type": "color" },
+      "accent": { "$value": "{color.burnt-orange}", "$type": "color" }
+    }
+  },
+  "font": {
+    "family": {
+      "display": { "$value": "Cormorant Garamond, Georgia, serif", "$type": "fontFamily" },
+      "body": { "$value": "Inter, system-ui, sans-serif", "$type": "fontFamily" }
+    },
+    "weight": {
+      "light": { "$value": "300", "$type": "fontWeight" },
+      "regular": { "$value": "400", "$type": "fontWeight" },
+      "medium": { "$value": "500", "$type": "fontWeight" },
+      "semibold": { "$value": "600", "$type": "fontWeight" }
+    },
+    "size": {
+      "xs": { "$value": "0.75rem", "$type": "dimension" },
+      "sm": { "$value": "0.875rem", "$type": "dimension" },
+      "base": { "$value": "1rem", "$type": "dimension" },
+      "lg": { "$value": "1.125rem", "$type": "dimension" },
+      "xl": { "$value": "1.5rem", "$type": "dimension" },
+      "2xl": { "$value": "2rem", "$type": "dimension" },
+      "3xl": { "$value": "2.5rem", "$type": "dimension" },
+      "4xl": { "$value": "3.5rem", "$type": "dimension" },
+      "5xl": { "$value": "4.5rem", "$type": "dimension" },
+      "hero": { "$value": "6rem", "$type": "dimension" }
+    },
+    "lineHeight": {
+      "tight": { "$value": "1.1", "$type": "number" },
+      "snug": { "$value": "1.25", "$type": "number" },
+      "normal": { "$value": "1.5", "$type": "number" },
+      "relaxed": { "$value": "1.65", "$type": "number" }
+    },
+    "letterSpacing": {
+      "nav": { "$value": "0.08em", "$type": "dimension" }
+    }
+  },
+  "spacing": {
+    "1": { "$value": "0.25rem", "$type": "dimension" },
+    "2": { "$value": "0.5rem", "$type": "dimension" },
+    "3": { "$value": "0.75rem", "$type": "dimension" },
+    "4": { "$value": "1rem", "$type": "dimension" },
+    "6": { "$value": "1.5rem", "$type": "dimension" },
+    "8": { "$value": "2rem", "$type": "dimension" },
+    "12": { "$value": "3rem", "$type": "dimension" },
+    "16": { "$value": "4rem", "$type": "dimension" },
+    "24": { "$value": "6rem", "$type": "dimension" },
+    "32": { "$value": "8rem", "$type": "dimension" },
+    "section": { "$value": "5rem", "$type": "dimension" },
+    "section-lg": { "$value": "7.5rem", "$type": "dimension" }
+  },
+  "radius": {
+    "none": { "$value": "0", "$type": "dimension" },
+    "sm": { "$value": "4px", "$type": "dimension" },
+    "md": { "$value": "8px", "$type": "dimension" },
+    "full": { "$value": "9999px", "$type": "dimension" }
+  },
+  "shadow": {
+    "polaroid": {
+      "$value": "0 4px 24px rgba(13, 13, 11, 0.15)",
+      "$type": "shadow"
+    },
+    "card": {
+      "$value": "0 8px 32px rgba(13, 13, 11, 0.25)",
+      "$type": "shadow"
+    }
+  },
+  "breakpoint": {
+    "sm": { "$value": "640px", "$type": "dimension" },
+    "md": { "$value": "768px", "$type": "dimension" },
+    "lg": { "$value": "1024px", "$type": "dimension" },
+    "xl": { "$value": "1280px", "$type": "dimension" },
+    "2xl": { "$value": "1440px", "$type": "dimension" }
+  },
+  "animation": {
+    "duration": {
+      "fast": { "$value": "200ms", "$type": "duration" },
+      "normal": { "$value": "300ms", "$type": "duration" },
+      "slow": { "$value": "800ms", "$type": "duration" }
+    },
+    "easing": {
+      "default": { "$value": "cubic-bezier(0.25, 0.1, 0.25, 1)", "$type": "cubicBezier" }
+    }
+  }
+}
