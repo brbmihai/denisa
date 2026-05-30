@@ -16,7 +16,7 @@
       font-family: var(--font-body);
       font-size: var(--text-body-size);
       line-height: var(--text-body-lh);
-      background: var(--color-glacier-fog);
+      background: var(--color-paper);
       color: var(--color-coal);
     }
     .preview-top {
@@ -135,6 +135,18 @@
   </style>
 </head>
 <body>
+  <svg class="ds-svg-defs" width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+    <defs>
+      <linearGradient id="ds-gold-line-fade" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="var(--color-gold)"></stop>
+        <stop offset="70%" stop-color="var(--color-gold)"></stop>
+        <stop offset="100%" stop-color="var(--color-gold)" stop-opacity="0"></stop>
+      </linearGradient>
+      <symbol id="ds-gold-line-shape" viewBox="0 0 420 28">
+        <path fill="url(#ds-gold-line-fade)" d="M0 13.2C75 10.8 165 9.6 210 10.2C285 10.6 355 12.4 420 15.2L420 16C355 15.1 285 14.3 210 14.5C165 15.2 75 16.3 0 18.4Z"></path>
+      </symbol>
+    </defs>
+  </svg>
   <a class="skip-link text-button" href="#colors" style="position:absolute;left:-9999px;top:0;z-index:400;padding:0.5rem 1rem;background:var(--color-burnt-orange);color:var(--color-coal);text-decoration:none">Skip to content</a>
   <header class="preview-top">
     <h1>Denisa Dragomir: Design System</h1>
@@ -196,6 +208,22 @@
             <p class="text-quote">"Only friends you haven't met on the trail yet."</p>
             <p class="text-handwritten" style="margin-top: var(--space-3)">Puternică pe munte, blândă în viață.</p>
             <p class="text-handwritten script" style="margin-top: var(--space-2)">「Muntele nu e un loc, e un profesor.」</p>
+            <div class="ds-gold-line ds-gold-line--quote" style="margin-top: var(--space-5);">
+              <p class="text-quote--gold-line">"Only friends you haven't met on the trail yet."</p>
+              <span class="ds-gold-underline ds-gold-underline--wide" aria-hidden="true">
+                <svg viewBox="0 0 420 28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <use href="#ds-gold-line-shape"></use>
+                </svg>
+              </span>
+            </div>
+            <div class="ds-gold-line ds-gold-line--handwritten" style="margin-top: var(--space-4);">
+              <p class="text-handwritten--gold-line">Puternică pe munte, blândă în viață.</p>
+              <span class="ds-gold-underline" aria-hidden="true">
+                <svg viewBox="0 0 420 28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <use href="#ds-gold-line-shape"></use>
+                </svg>
+              </span>
+            </div>
           </div>
         </div>
         <div class="type-scale-row">
@@ -234,19 +262,77 @@
           </header>
         </div>
 
+        <!-- Hero subtitle ornament (v6) -->
+        <div>
+          <p class="text-overline" style="margin-bottom: var(--space-3);">Hero subtitle ornament · v6</p>
+          <p class="text-body-sm" style="margin-bottom: var(--space-4); max-width: 36rem;">
+            Gold cubic ribbon (<code class="text-caption">--color-gold</code>) with width held to 70%, then opacity fade. Used under hero headlines on dark backgrounds.
+          </p>
+          <div class="on-dark-demo on-dark">
+            <p class="text-display-md text-on-dark" style="margin-bottom: var(--space-4);">Run Mountains.<br>Be More You.</p>
+            <div class="hero-subtitle-element">
+              <span class="hero-subtitle-element__line hero-subtitle-element__line--wide hero-subtitle-element__line--v6 ds-gold-underline ds-gold-underline--wide" aria-hidden="true">
+                <svg viewBox="0 0 420 28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <use href="#ds-gold-line-shape"></use>
+                </svg>
+              </span>
+              <p class="hero-subtitle-element__text">
+                Performance apparel inspired by the beauty of nature and the feeling of freedom.
+                Sustainable gear for your wildest trails.
+              </p>
+            </div>
+          </div>
+        </div>
+
         <!-- Buttons & links -->
         <div>
           <p class="text-overline" style="margin-bottom: var(--space-3);">Buttons & links</p>
           <div class="component-row">
             <button type="button" class="ds-btn ds-btn--primary">Join the Club</button>
+            <button type="button" class="ds-btn ds-btn--gold">About Denisa</button>
             <button type="button" class="ds-btn ds-btn--secondary">Learn more</button>
             <button type="button" class="ds-btn ds-btn--ghost">View programs</button>
             <button type="button" class="ds-btn ds-btn--icon" aria-label="Notifications">🔔</button>
             <a href="#" class="ds-link">Explore coaching</a>
+            <a href="#" class="ds-link ds-link--gold">About Denisa</a>
+            <a href="#" class="ds-link ds-link--gold-line">
+              <span>About Denisa</span>
+              <span class="ds-gold-underline" aria-hidden="true">
+                <svg viewBox="0 0 420 28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <use href="#ds-gold-line-shape"></use>
+                </svg>
+              </span>
+            </a>
           </div>
-          <div class="on-dark-demo on-dark component-row" style="margin-top: var(--space-4);">
+          <div class="on-dark-demo on-dark" style="margin-top: var(--space-4); padding: var(--space-6); display: flex; flex-wrap: wrap; gap: var(--space-8); align-items: flex-start;">
             <button type="button" class="ds-btn ds-btn--primary">Join the Community</button>
+            <button type="button" class="ds-btn ds-btn--gold">About Denisa</button>
             <button type="button" class="ds-btn ds-btn--secondary on-dark">Explore</button>
+            <a href="#" class="ds-link ds-link--gold">Explore coaching</a>
+            <a href="#" class="ds-link ds-link--gold-line">
+              <span>About Denisa</span>
+              <span class="ds-gold-underline" aria-hidden="true">
+                <svg viewBox="0 0 420 28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <use href="#ds-gold-line-shape"></use>
+                </svg>
+              </span>
+            </a>
+            <div class="ds-gold-line ds-gold-line--quote on-dark">
+              <p class="text-quote--gold-line on-dark">In this community, there are no strangers.</p>
+              <span class="ds-gold-underline ds-gold-underline--wide" aria-hidden="true">
+                <svg viewBox="0 0 420 28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <use href="#ds-gold-line-shape"></use>
+                </svg>
+              </span>
+            </div>
+            <div class="ds-gold-line ds-gold-line--handwritten">
+              <p class="text-handwritten--gold-line">Puternică pe munte, blândă în viață.</p>
+              <span class="ds-gold-underline" aria-hidden="true">
+                <svg viewBox="0 0 420 28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <use href="#ds-gold-line-shape"></use>
+                </svg>
+              </span>
+            </div>
             <div class="ds-stat on-dark"><span class="text-stat-num">100K+</span><span class="text-stat-label">Beyond limits</span></div>
           </div>
         </div>
@@ -567,8 +653,8 @@
   <script>
     const colors = [
       ["Coal", "#0D0D0B"], ["Basalt", "#1F211A"], ["Forest Night", "#2E3427"],
-      ["Stone", "#D9E2D5"], ["Sand", "#D5C7B5"], ["Clay", "#A08B45"],
-      ["Burnt Orange", "#D86A2B"], ["Alpine Moss", "#6B705F"], ["Glacier Fog", "#DDE2E3"],
+      ["Stone", "#D9E2D5"], ["Sand", "#D5C7B5"], ["Clay", "#A08B45"], ["Gold", "#B87942"],
+      ["Burnt Orange", "#D86A2B"], ["Rust", "#9A4600"], ["Alpine Moss", "#6B705F"], ["Paper", "#EDE7DC"], ["White", "#FAF9F6"],
     ];
     document.getElementById("swatches").innerHTML = colors.map(([n, h]) =>
       `<div class="swatch"><div class="swatch-color" style="background:${h}"></div><div class="swatch-info"><strong>${n}</strong>${h}</div></div>`

@@ -21,14 +21,17 @@ Professional mountain trail-running site blending full-bleed photography, torn-p
 | Stone | `#D9E2D5` | Light section fills, torn-paper base |
 | Sand | `#D5C7B5` | Warm paper, secondary light BG |
 | Clay | `#A08B45` | Muted gold accents, tags |
+| Gold | `#B87942` | Hero ornament lines, gold button & link variant |
 | Burnt Orange | `#D86A2B` | Primary buttons, links, highlights |
+| Rust | `#9A4600` | Deep accent, emphasis, hover on warm surfaces |
 | Alpine Moss | `#6B705F` | Secondary text, icons on light |
-| Glacier Fog | `#DDE2E3` | Cool neutrals, borders, subtle BG |
+| Paper | `#EDE7DC` | Page background, borders, subtle fills |
+| White | `#FAF9F6` | Cards, polaroid frames, warm off-white |
 
 ### Semantic mapping
 
 - **Background (dark):** Coal → Basalt → Forest Night
-- **Background (light):** Stone, Sand, Glacier Fog
+- **Background (light):** Stone, Sand, Paper
 - **Text on dark:** warm white `#FAF9F6`, Stone at 80% for secondary
 - **Text on light:** Coal, Basalt for headings; Alpine Moss for body secondary
 - **Accent / CTA:** Burnt Orange
@@ -170,9 +173,15 @@ Minimal elevation; depth from photography and texture.
 | Header | `.ds-header` | Sticky; hamburger `.ds-nav-toggle`; nav hidden until desktop |
 | Logo | `.ds-logo` | Stacked wordmark + mountain mark |
 | Button primary | `.ds-btn--primary` | Full-width option: `.ds-btn--block` |
+| Button gold | `.ds-btn--gold` | Hero / editorial CTA; token `--color-gold` |
 | Button secondary | `.ds-btn--secondary` | `.on-dark` variant for dark sections |
 | Button ghost / icon | `.ds-btn--ghost`, `.ds-btn--icon` | — |
-| Text link | `.ds-link` | Arrow suffix |
+| Text link | `.ds-link` | Burnt orange default; arrow suffix |
+| Text link gold | `.ds-link--gold` | `--color-gold`; pairs with hero ornaments |
+| Text link + gold line | `.ds-link--gold-line` + `.ds-gold-underline` | Hero text-link; no arrow suffix |
+| Gold cubic underline | `.ds-gold-underline` | v6 SVG path; needs `#ds-gold-line-fade` in page defs |
+| Quote + gold line | `.ds-gold-line--quote` · `.text-quote--gold-line` | Editorial pull quote |
+| Handwritten + gold line | `.ds-gold-line--handwritten` · `.text-handwritten--gold-line` | Caveat in `--color-gold` |
 | Tag / badge | `.ds-tag`, `.ds-badge` | Outline and dark variants |
 | Stat | `.ds-stat` | Editorial top rule; `.on-dark` for dark surfaces |
 | Card / program card | `.ds-card`, `.ds-card--program` | Image overlay gradient |

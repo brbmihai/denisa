@@ -166,12 +166,23 @@
 }
 .ds-btn--primary:hover { background: var(--button-primary-hover); }
 .ds-btn--primary:active { background: #a85522; }
+.ds-btn--gold {
+  background: var(--button-gold-bg);
+  color: var(--button-gold-text);
+}
+.ds-btn--gold:hover { background: var(--button-gold-hover); }
+.ds-btn--gold:active { background: var(--button-gold-active); }
+
 .ds-btn--primary:focus-visible,
+.ds-btn--gold:focus-visible,
 .ds-btn--secondary:focus-visible,
 .ds-btn--ghost:focus-visible,
 .ds-btn--icon:focus-visible {
   outline: var(--focus-ring-width) solid var(--focus-ring-color);
   outline-offset: 2px;
+}
+.ds-btn--gold:focus-visible {
+  outline-color: var(--focus-ring-color-gold);
 }
 .ds-btn--secondary {
   background: transparent;
@@ -232,6 +243,77 @@
   border-radius: 2px;
 }
 .ds-link::after { content: "→"; font-size: 0.875em; }
+
+.ds-link--gold {
+  color: var(--color-gold);
+}
+.ds-link--gold:focus-visible {
+  outline-color: var(--focus-ring-color-gold);
+}
+
+/* Gold cubic underline (v6) — page needs #ds-gold-line-fade + #ds-gold-line-shape in hidden SVG <defs>
+   Path: thicker start (~5px), deeper arch — M0 13.2C75 10.8 165 9.6 210 10.2… */
+.ds-gold-line {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.ds-gold-underline {
+  display: block;
+  width: 6.75rem;
+  height: 1.15rem;
+  flex-shrink: 0;
+}
+
+.ds-gold-underline--wide {
+  width: min(16rem, 92%);
+  height: 1.75rem;
+}
+
+.ds-gold-underline svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.ds-link--gold-line {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  color: var(--color-gold);
+  font-size: var(--text-button-size);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-nav);
+  text-transform: uppercase;
+}
+
+.ds-link--gold-line::after {
+  content: none;
+}
+
+.ds-link--gold-line:hover {
+  text-decoration: none;
+  color: var(--color-burnt-orange);
+}
+
+.on-dark .ds-link--gold-line:hover {
+  color: var(--color-stone);
+}
+
+.ds-gold-line--quote {
+  max-width: 28rem;
+}
+
+.ds-gold-line--handwritten {
+  max-width: 22rem;
+}
+
+.ds-gold-line--quote .text-quote--gold-line,
+.ds-gold-line--handwritten .text-handwritten--gold-line {
+  margin: 0;
+}
 
 /* ─── Tags / Badges ─── */
 .ds-tag {
@@ -366,7 +448,7 @@
 .polaroid,
 .ds-polaroid {
   margin: 0;
-  background: var(--color-paper);
+  background: var(--color-white);
   padding: 0.75rem 0.75rem 3rem;
   box-shadow: var(--shadow-polaroid);
   transform: rotate(-2deg);
@@ -377,6 +459,52 @@
 .polaroid--warm,
 .ds-polaroid--warm {
   background: var(--color-sand);
+}
+
+/* Mountain dark cobalt — for dark dotted / forest sections */
+.polaroid--cobalt,
+.ds-polaroid--cobalt {
+  background: linear-gradient(168deg, #263f5e 0%, #152238 55%, #0f1a2e 100%);
+  box-shadow:
+    0 4px 24px rgba(8, 14, 28, 0.5),
+    0 16px 48px rgba(13, 13, 11, 0.25),
+    inset 0 1px 0 rgba(126, 164, 210, 0.12);
+  transform: rotate(3deg);
+}
+
+.polaroid--cobalt::before,
+.polaroid--cobalt::after,
+.ds-polaroid--cobalt::before,
+.ds-polaroid--cobalt::after {
+  background: oklch(0.72 0.04 250 / 0.35);
+}
+
+.polaroid--cobalt img {
+  filter:
+    contrast(1.1)
+    saturate(0.55)
+    brightness(0.78)
+    sepia(0.18)
+    hue-rotate(198deg);
+}
+
+.polaroid--cobalt img.color {
+  filter:
+    contrast(1.08)
+    saturate(0.62)
+    brightness(0.8)
+    sepia(0.12)
+    hue-rotate(198deg);
+}
+
+.polaroid--cobalt figcaption p,
+.polaroid--cobalt > p,
+.ds-polaroid--cobalt .ds-polaroid__caption {
+  color: var(--color-stone);
+}
+
+.polaroid--cobalt .script {
+  color: #8eb8dc;
 }
 .polaroid::before,
 .polaroid::after,
@@ -414,7 +542,7 @@
   display: block;
   width: 100%;
   aspect-ratio: 4 / 5;
-  background: var(--color-glacier-fog);
+  background: var(--color-paper);
   filter: grayscale(100%);
 }
 .polaroid figcaption p,
@@ -474,7 +602,7 @@
   line-height: var(--text-body-sm-lh);
 }
 .ds-alert--info {
-  background: color-mix(in srgb, var(--color-glacier-fog) 88%, var(--color-alpine-moss));
+  background: color-mix(in srgb, var(--color-paper) 88%, var(--color-alpine-moss));
   color: var(--color-coal);
   border: 1px solid color-mix(in srgb, var(--color-alpine-moss) 40%, transparent);
 }
@@ -725,6 +853,41 @@
 }
 @media (min-width: 48rem) {
   .ds-modal { border-radius: var(--radius-md); }
+}
+
+/* ─── Hero subtitle ornament (v6 gold cubic) ─── */
+.hero-subtitle-element {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 26rem;
+}
+
+.hero-subtitle-element__line {
+  display: block;
+  width: min(12rem, 70%);
+  height: 0.45rem;
+}
+
+.hero-subtitle-element__line--wide {
+  width: min(14rem, 88%);
+  height: 0.45rem;
+}
+
+.hero-subtitle-element__text {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm-size);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.65;
+  color: var(--color-text-on-dark);
+}
+
+@media (min-width: 48rem) {
+  .hero-subtitle-element__text {
+    font-size: var(--text-body-size);
+    line-height: var(--text-body-lh);
+  }
 }
 
 /* Viewport label (preview only) */

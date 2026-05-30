@@ -16,12 +16,13 @@
   --color-stone: #d9e2d5;
   --color-sand: #d5c7b5;
   --color-clay: #a08b45;
+  --color-gold: #b87942;
   --color-burnt-orange: #d86a2b;
+  --color-rust: #9a4600;
   --color-alpine-moss: #6b705f;
-  --color-glacier-fog: #dde2e3;
   /* Warm-tinted surface (not pure #fff) */
   --color-white: #faf9f6;
-  --color-paper: #faf8f4;
+  --color-paper: #ede7dc;
   --color-tape: oklch(0.82 0.028 75 / 0.75);
   --color-error: #b33a2c;
   --color-success: #4a6b4f;
@@ -177,7 +178,13 @@
   --button-primary-bg: var(--color-burnt-orange);
   --button-primary-text: var(--color-white);
   --button-primary-hover: #c25f26;
+  --button-gold-bg: var(--color-gold);
+  --button-gold-text: var(--color-white);
+  --button-gold-hover: #9f6638;
+  --button-gold-active: #8a5830;
   --button-secondary-border: var(--color-coal);
+
+  --focus-ring-color-gold: rgba(184, 121, 66, 0.45);
 
   --input-height: 3rem;
   --input-padding-x: 1rem;

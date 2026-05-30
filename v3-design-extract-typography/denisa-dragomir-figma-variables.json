@@ -54,11 +54,27 @@
       }
     },
     {
+      "name": "color/gold",
+      "type": "COLOR",
+      "valuesByMode": {
+        "light": { "r": 0.722, "g": 0.475, "b": 0.259, "a": 1 },
+        "dark": { "r": 0.722, "g": 0.475, "b": 0.259, "a": 1 }
+      }
+    },
+    {
       "name": "color/burnt-orange",
       "type": "COLOR",
       "valuesByMode": {
         "light": { "r": 0.847, "g": 0.416, "b": 0.169, "a": 1 },
         "dark": { "r": 0.847, "g": 0.416, "b": 0.169, "a": 1 }
+      }
+    },
+    {
+      "name": "color/rust",
+      "type": "COLOR",
+      "valuesByMode": {
+        "light": { "r": 0.604, "g": 0.275, "b": 0, "a": 1 },
+        "dark": { "r": 0.604, "g": 0.275, "b": 0, "a": 1 }
       }
     },
     {
@@ -70,11 +86,11 @@
       }
     },
     {
-      "name": "color/glacier-fog",
+      "name": "color/paper",
       "type": "COLOR",
       "valuesByMode": {
-        "light": { "r": 0.867, "g": 0.886, "b": 0.89, "a": 1 },
-        "dark": { "r": 0.867, "g": 0.886, "b": 0.89, "a": 1 }
+        "light": { "r": 0.929, "g": 0.906, "b": 0.863, "a": 1 },
+        "dark": { "r": 0.929, "g": 0.906, "b": 0.863, "a": 1 }
       }
     },
     {
